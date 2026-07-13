@@ -189,7 +189,7 @@ function renderTraitTotals(combatTraitList){
   }).join('');
   if(!cards)return '';
   return `<div style="margin-bottom:4px;">
-    <div style="font-family:var(--font-a);font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--re-yellow);text-transform:uppercase;margin-bottom:12px;">📊 Combined Totals — ${contributingCount} trait${contributingCount>1?'s':''} with confirmed values</div>
+    <div style="font-family:var(--font-a);font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--ee-yellow);text-transform:uppercase;margin-bottom:12px;">📊 Combined Totals — ${contributingCount} trait${contributingCount>1?'s':''} with confirmed values</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:10px;">${cards}</div>
     <div style="font-family:var(--font-b);font-size:11px;color:rgba(255,255,255,.3);font-style:italic;">Sum of each trait's confirmed bonus/penalty. Traits without numeric values (Chivalrous, Shrewd, phobias, etc.) aren't included.</div>
   </div>`;
@@ -233,15 +233,15 @@ function renderTabbedTraits(traitList,opts){
     const chipColor=isNegative?tabColor['Negative Penalties']:color;
     const tagChips=tabs.filter(tab=>tab!=='Negative Penalties'||tabs.length===1).map(tab=>`<span style="font-family:var(--font-a);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:${tabColor[tab]};background:${tabColor[tab]}1f;border-radius:4px;padding:2px 7px;white-space:nowrap;">${tab}</span>`).join('');
     const tierBadge=editable&&t.tier
-      ? `<select onchange="correctTraitTier('${t.name.replace(/'/g,"\\'")}','${t.tier}',this.value)" style="font-weight:600;font-size:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:4px;color:${isMythical?'var(--re-yellow)':'rgba(255,255,255,.8)'};padding:1px 4px;font-family:var(--font-b);margin-left:6px;">${tierOptionsHtml(t.tier)}</select>`
-      : (t.tier?`<span style="font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:${isMythical?'rgba(255,214,0,.18)':'rgba(255,255,255,.08)'};color:${isMythical?'var(--re-yellow)':'rgba(255,255,255,.55)'};border-radius:100px;padding:2px 8px;margin-left:6px;">${t.tier}</span>`:'');
+      ? `<select onchange="correctTraitTier('${t.name.replace(/'/g,"\\'")}','${t.tier}',this.value)" style="font-weight:600;font-size:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:4px;color:${isMythical?'var(--ee-yellow)':'rgba(255,255,255,.8)'};padding:1px 4px;font-family:var(--font-b);margin-left:6px;">${tierOptionsHtml(t.tier)}</select>`
+      : (t.tier?`<span style="font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:${isMythical?'rgba(255,214,0,.18)':'rgba(255,255,255,.08)'};color:${isMythical?'var(--ee-yellow)':'rgba(255,255,255,.55)'};border-radius:100px;padding:2px 8px;margin-left:6px;">${t.tier}</span>`:'');
     const nameOptionsHtml=(current)=>getAllTraitNames().map(n=>`<option value="${n.replace(/"/g,'&quot;')}"${n===current?' selected':''}>${n}</option>`).join('');
     const nameBadge=editable
-      ? `<select onchange="correctTraitName('${t.name.replace(/'/g,"\\'")}','${t.tier||''}',this.value)" style="font-family:var(--font-d);font-size:16px;font-weight:800;color:${isMythical?'var(--re-yellow)':chipColor};background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:1px 4px;max-width:100%;">${nameOptionsHtml(t.name)}</select>`
+      ? `<select onchange="correctTraitName('${t.name.replace(/'/g,"\\'")}','${t.tier||''}',this.value)" style="font-family:var(--font-d);font-size:16px;font-weight:800;color:${isMythical?'var(--ee-yellow)':chipColor};background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:1px 4px;max-width:100%;">${nameOptionsHtml(t.name)}</select>`
       : t.name;
     const iconStyle=getTraitIconStyle(t.name,isMythical,42);
     const iconHtml=iconStyle
-      ? `<div style="${iconStyle}border:2px solid ${isMythical?'var(--re-yellow)':chipColor+'80'};${isMythical?'box-shadow:0 0 0 3px rgba(255,214,0,.12),0 0 14px 5px rgba(255,214,0,.3);':''}"></div>`
+      ? `<div style="${iconStyle}border:2px solid ${isMythical?'var(--ee-yellow)':chipColor+'80'};${isMythical?'box-shadow:0 0 0 3px rgba(255,214,0,.12),0 0 14px 5px rgba(255,214,0,.3);':''}"></div>`
       : `<div style="width:42px;height:42px;border-radius:50%;flex-shrink:0;background:${chipColor}22;border:2px solid ${chipColor}50;display:flex;align-items:center;justify-content:center;font-size:18px;">${isNegative?'⚠️':'⚔️'}</div>`;
     const barColor=isMythical?'#ffd600':chipColor;
     const barGlow=isMythical
@@ -251,7 +251,7 @@ function renderTabbedTraits(traitList,opts){
       <div style="display:flex;align-items:center;gap:11px;padding:10px 13px 0;">
         ${iconHtml}
         <div style="flex:1;min-width:0;">
-          <div style="font-family:var(--font-d);font-size:16px;font-weight:800;color:${isMythical?'var(--re-yellow)':chipColor};line-height:1.2;display:flex;align-items:center;flex-wrap:wrap;">${nameBadge}${tierBadge}</div>
+          <div style="font-family:var(--font-d);font-size:16px;font-weight:800;color:${isMythical?'var(--ee-yellow)':chipColor};line-height:1.2;display:flex;align-items:center;flex-wrap:wrap;">${nameBadge}${tierBadge}</div>
           <div style="display:flex;flex-wrap:wrap;gap:3px 5px;margin-top:5px;">${tagChips}</div>
         </div>
       </div>
@@ -317,7 +317,7 @@ function buildSliderRow(t,containerId,inputPrefix){
     <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.7);margin-bottom:4px;">
       <span>${t.label}</span>
       <div style="display:flex;align-items:center;gap:6px;">
-        <select id="${inputPrefix}-${t.key}-tier" style="background:rgba(255,255,255,.06);border:1px solid var(--re-border);border-radius:4px;color:var(--re-yellow);font-family:var(--font-d);font-weight:700;font-size:11px;padding:2px 4px;">${tierOptions}</select>
+        <select id="${inputPrefix}-${t.key}-tier" style="background:rgba(255,255,255,.06);border:1px solid var(--ee-border);border-radius:4px;color:var(--ee-yellow);font-family:var(--font-d);font-weight:700;font-size:11px;padding:2px 4px;">${tierOptions}</select>
         <span id="${inputPrefix}-${t.key}-val">0%</span>
       </div>
     </div>
@@ -356,18 +356,18 @@ function updateCompTotal(spanId,prefix){
   });
   document.getElementById(spanId).textContent=total;
   const totalEl=document.getElementById(spanId).parentElement;
-  if(totalEl) totalEl.style.color = total===100 ? '#5dba70' : 'var(--re-red)';
+  if(totalEl) totalEl.style.color = total===100 ? '#5dba70' : 'var(--ee-red)';
 }
 
 function setTargetMode(mode,btn){
   document.querySelectorAll('.target-btn').forEach(b=>{
     b.style.background='rgba(255,255,255,.05)';
-    b.style.borderColor='var(--re-border)';
+    b.style.borderColor='var(--ee-border)';
     b.style.color='rgba(255,255,255,.5)';
   });
   btn.style.background='rgba(255,214,0,.1)';
-  btn.style.borderColor='var(--re-yellow)';
-  btn.style.color='var(--re-yellow)';
+  btn.style.borderColor='var(--ee-yellow)';
+  btn.style.color='var(--ee-yellow)';
   document.getElementById('target-fort').style.display=mode==='fort'?'block':'none';
   document.getElementById('target-custom').style.display=mode==='custom'?'block':'none';
   window.battleTargetMode=mode;
@@ -378,12 +378,12 @@ function setTargetMode(mode,btn){
 function setBsimTargetMode(mode,btn){
   document.querySelectorAll('.bsim-target-btn').forEach(b=>{
     b.style.background='rgba(255,255,255,.05)';
-    b.style.borderColor='var(--re-border)';
+    b.style.borderColor='var(--ee-border)';
     b.style.color='rgba(255,255,255,.5)';
   });
   btn.style.background='rgba(255,214,0,.1)';
-  btn.style.borderColor='var(--re-yellow)';
-  btn.style.color='var(--re-yellow)';
+  btn.style.borderColor='var(--ee-yellow)';
+  btn.style.color='var(--ee-yellow)';
   document.getElementById('bsim-target-fort').style.display=mode==='fort'?'block':'none';
   document.getElementById('bsim-target-custom').style.display=mode==='custom'?'block':'none';
   window.bsimTargetMode=mode;
@@ -407,10 +407,10 @@ function initBattleSimStandalone(){
   header.innerHTML=`<div style="background:rgba(255,214,0,.06);border:1px solid rgba(255,214,0,.25);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:14px;margin-bottom:4px;">
     <div style="font-size:1.8rem;">🎖️</div>
     <div>
-      <div style="font-family:var(--font-d);font-weight:900;font-size:17px;color:var(--re-yellow);letter-spacing:.03em;">${name}</div>
+      <div style="font-family:var(--font-d);font-weight:900;font-size:17px;color:var(--ee-yellow);letter-spacing:.03em;">${name}</div>
       <div style="font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;">${role}${power} — traits loaded from Army Sim</div>
     </div>
-    <button onclick="showView('simulator')" style="margin-left:auto;background:rgba(255,255,255,.06);border:1px solid var(--re-border);border-radius:6px;padding:6px 12px;font-family:var(--font-b);font-size:11px;color:rgba(255,255,255,.5);cursor:pointer;white-space:nowrap;">← Change Noble</button>
+    <button onclick="showView('simulator')" style="margin-left:auto;background:rgba(255,255,255,.06);border:1px solid var(--ee-border);border-radius:6px;padding:6px 12px;font-family:var(--font-b);font-size:11px;color:rgba(255,255,255,.5);cursor:pointer;white-space:nowrap;">← Change Noble</button>
   </div>`;
   // Build sliders once (check if already initialised)
   if(!document.getElementById('bsim-comp-sliders').innerHTML){
@@ -510,8 +510,8 @@ function runBattleSimStandalone(){
   let verdict,verdictColor;
   if(activePhobias.length){verdict='⚠️ Severe Trait Penalty — Combat Risk Unclear';verdictColor='#ff4444';}
   else if(finalMult>=1.3){verdict='Strong Advantage — Favorable Engagement';verdictColor='#5dba70';}
-  else if(finalMult>=1.05){verdict='Slight Edge — Likely Win';verdictColor='var(--re-yellow)';}
-  else if(finalMult>=0.9){verdict='Even Matchup — Risky';verdictColor='var(--re-yellow)';}
+  else if(finalMult>=1.05){verdict='Slight Edge — Likely Win';verdictColor='var(--ee-yellow)';}
+  else if(finalMult>=0.9){verdict='Even Matchup — Risky';verdictColor='var(--ee-yellow)';}
   else{verdict='Disadvantage — Avoid This Engagement';verdictColor='#ff7070';}
   const champName=document.getElementById('bsim-champ-name').value;
   const champBonusText=document.getElementById('bsim-champ-bonus').value;
@@ -525,20 +525,20 @@ function runBattleSimStandalone(){
       <div style="font-family:var(--font-d);font-weight:800;font-size:18px;color:${verdictColor};text-transform:uppercase;margin-top:14px;letter-spacing:.04em;">${verdict}</div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px;">
-      <div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:10px;padding:16px;text-align:center;">
+      <div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:10px;padding:16px;text-align:center;">
         <div style="font-family:var(--font-a);font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Survival Outlook</div>
-        <div style="font-family:var(--font-d);font-weight:800;font-size:30px;color:var(--re-yellow);">${survivalEstimate}%</div>
+        <div style="font-family:var(--font-d);font-weight:800;font-size:30px;color:var(--ee-yellow);">${survivalEstimate}%</div>
       </div>
-      <div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:10px;padding:16px;text-align:center;">
+      <div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:10px;padding:16px;text-align:center;">
         <div style="font-family:var(--font-a);font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Combat Advantage</div>
-        <div style="font-family:var(--font-d);font-weight:800;font-size:30px;color:var(--re-yellow);">${advMult>=1?'+':''}${Math.round((advMult-1)*100)}%</div>
+        <div style="font-family:var(--font-d);font-weight:800;font-size:30px;color:var(--ee-yellow);">${advMult>=1?'+':''}${Math.round((advMult-1)*100)}%</div>
       </div>
-      <div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:10px;padding:16px;text-align:center;">
+      <div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:10px;padding:16px;text-align:center;">
         <div style="font-family:var(--font-a);font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Elemental Edge</div>
         <div style="font-family:var(--font-d);font-weight:800;font-size:30px;color:${elemMult===1?'rgba(255,255,255,.4)':elemMult>1?'#5dba70':'#ff7070'};">${elemMult===1?'—':(elemMult>1?'+':'')+Math.round((elemMult-1)*100)+'%'}</div>
       </div>
     </div>
-    ${(traitAssaultDefBonus||traitDeployBonus||traitSpeedBonus||traitDefeatRecoveryBonus)?`<div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:8px;padding:12px 14px;margin-bottom:14px;">
+    ${(traitAssaultDefBonus||traitDeployBonus||traitSpeedBonus||traitDefeatRecoveryBonus)?`<div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:8px;padding:12px 14px;margin-bottom:14px;">
       <div style="font-family:var(--font-a);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:6px;">Other Trait-Confirmed Stats (not yet factored into Damage/Survival above)</div>
       <div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.7);">
         ${traitAssaultDefBonus?`Assault Defense: ${traitAssaultDefBonus>=0?'+':''}${Math.round(traitAssaultDefBonus*100)}%<br>`:''}
@@ -547,17 +547,17 @@ function runBattleSimStandalone(){
         ${traitSpeedBonus?`Army Speed: ${traitSpeedBonus>=0?'+':''}${Math.round(traitSpeedBonus*100)}%`:''}
       </div>
     </div>`:''}
-    ${champName?`<div style="background:rgba(255,214,0,.06);border:1px solid rgba(255,214,0,.2);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.6);">🎖️ <strong style="color:var(--re-yellow);">${champName}</strong> (${champRarity} ${champClass})${champBonusText?' — '+champBonusText:''}</div>`:''}
+    ${champName?`<div style="background:rgba(255,214,0,.06);border:1px solid rgba(255,214,0,.2);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.6);">🎖️ <strong style="color:var(--ee-yellow);">${champName}</strong> (${champRarity} ${champClass})${champBonusText?' — '+champBonusText:''}</div>`:''}
     <div style="margin-bottom:14px;">
       <div style="font-family:var(--font-a);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;">Combat Advantage Breakdown — why you're winning or losing</div>
       <div style="display:flex;flex-direction:column;gap:5px;">${buildMatchupBreakdown(myComp,enemyComp)}</div>
       <div style="font-family:var(--font-b);font-size:10px;color:rgba(255,255,255,.3);font-style:italic;margin-top:6px;">Net column = % of enemy your troop counters minus % of enemy countering you. Positive = your troop is winning its matchup in this fight.</div>
     </div>
     ${activePairs.length?`<div style="background:rgba(93,186,112,.08);border:1px solid rgba(93,186,112,.3);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:16px;color:rgba(255,255,255,.95);">🤝 <strong style="color:#5dba70;">Pairing synergy: ${activePairs.map(p=>p.label).join(', ')}.</strong> +${activePairs.length*3}% included in Combat Advantage.</div>`
-    :`<div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.4);">💡 No confirmed unit pairing active. Swordsmen+Archers, Axemen+Catapults, or Cavalry+Crossbowmen each add a +3% synergy bonus when both halves are ≥${PAIR_MIN_PCT}%.</div>`}
+    :`<div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.4);">💡 No confirmed unit pairing active. Swordsmen+Archers, Axemen+Catapults, or Cavalry+Crossbowmen each add a +3% synergy bonus when both halves are ≥${PAIR_MIN_PCT}%.</div>`}
     ${activePhobias.length?`<div style="background:rgba(255,68,68,.1);border:1px solid rgba(255,68,68,.4);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:13px;color:#ffaaaa;">🚨 <strong>Severe phobia: ${activePhobias.join(', ')}.</strong> -90% penalties to multiple stats not fully reflected above.</div>`:''}
     ${martialApplied>0?`<div style="background:rgba(255,170,80,.08);border:1px solid rgba(255,170,80,.3);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:13px;color:#ffcc99;">⚔️ <strong>Martial trait: +${Math.round(martialApplied*100)}% weighted damage</strong> based on your troop mix.</div>`:''}
-    ${mythicalTraitsApplied.length?`<div style="background:rgba(255,214,0,.1);border:1px solid var(--re-yellow);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.8);">✨ <strong style="color:var(--re-yellow);">Mythical traits applied: ${mythicalTraitsApplied.join(', ')}.</strong></div>`:''}
+    ${mythicalTraitsApplied.length?`<div style="background:rgba(255,214,0,.1);border:1px solid var(--ee-yellow);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.8);">✨ <strong style="color:var(--ee-yellow);">Mythical traits applied: ${mythicalTraitsApplied.join(', ')}.</strong></div>`:''}
     <div style="font-family:var(--font-b);font-size:11px;color:rgba(255,255,255,.3);text-align:center;font-style:italic;padding-top:4px;">Estimate based on troop mix, tiers, element, verified trait effects, and champion bonuses. Elemental advantage magnitude is approximate — only the counter direction is confirmed.</div>
   `;
   document.getElementById('bsim-result').scrollIntoView({behavior:'smooth',block:'start'});
@@ -806,8 +806,8 @@ function runBattleSim(){
   let verdict,verdictColor;
   if(activePhobias.length){verdict='⚠️ Severe Trait Penalty — Combat Risk Unclear';verdictColor='#ff4444';}
   else if(finalMult>=1.3){verdict='Strong Advantage — Favorable Engagement';verdictColor='#5dba70';}
-  else if(finalMult>=1.05){verdict='Slight Edge — Likely Win';verdictColor='var(--re-yellow)';}
-  else if(finalMult>=0.9){verdict='Even Matchup — Risky';verdictColor='var(--re-yellow)';}
+  else if(finalMult>=1.05){verdict='Slight Edge — Likely Win';verdictColor='var(--ee-yellow)';}
+  else if(finalMult>=0.9){verdict='Even Matchup — Risky';verdictColor='var(--ee-yellow)';}
   else{verdict='Disadvantage — Avoid This Engagement';verdictColor='#ff7070';}
 
   const champName=document.getElementById('champ-name').value;
@@ -824,26 +824,26 @@ function runBattleSim(){
       <div style="font-family:var(--font-d);font-weight:800;font-size:16px;color:${verdictColor};text-transform:uppercase;margin-top:10px;">${verdict}</div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;">
-      <div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:8px;padding:12px;text-align:center;">
+      <div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:8px;padding:12px;text-align:center;">
         <div style="font-family:var(--font-a);font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;">Estimated Survival Outlook</div>
-        <div style="font-family:var(--font-d);font-weight:800;font-size:24px;color:var(--re-yellow);">${survivalEstimate}%</div>
+        <div style="font-family:var(--font-d);font-weight:800;font-size:24px;color:var(--ee-yellow);">${survivalEstimate}%</div>
       </div>
-      <div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:8px;padding:12px;text-align:center;">
+      <div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:8px;padding:12px;text-align:center;">
         <div style="font-family:var(--font-a);font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;">Combat Advantage</div>
-        <div style="font-family:var(--font-d);font-weight:800;font-size:24px;color:var(--re-yellow);">${advMult>=1?'+':''}${Math.round((advMult-1)*100)}%</div>
+        <div style="font-family:var(--font-d);font-weight:800;font-size:24px;color:var(--ee-yellow);">${advMult>=1?'+':''}${Math.round((advMult-1)*100)}%</div>
       </div>
-      <div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:8px;padding:12px;text-align:center;">
+      <div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:8px;padding:12px;text-align:center;">
         <div style="font-family:var(--font-a);font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;">Elemental Edge</div>
         <div style="font-family:var(--font-d);font-weight:800;font-size:24px;color:${elemMult===1?'rgba(255,255,255,.4)':elemMult>1?'#5dba70':'#ff7070'};">${elemMult===1?'Neutral':(elemMult>1?'+':'')+Math.round((elemMult-1)*100)+'%'}</div>
       </div>
     </div>
-    ${champName?`<div style="background:rgba(255,214,0,.06);border:1px solid rgba(255,214,0,.2);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:15px;color:rgba(255,255,255,.92);">🎖️ <strong style="color:var(--re-yellow);">${champName}</strong> (${champRarity} ${champClass})${champBonusText?' — '+champBonusText:''} included as player-provided context.</div>`:''}
+    ${champName?`<div style="background:rgba(255,214,0,.06);border:1px solid rgba(255,214,0,.2);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:15px;color:rgba(255,255,255,.92);">🎖️ <strong style="color:var(--ee-yellow);">${champName}</strong> (${champRarity} ${champClass})${champBonusText?' — '+champBonusText:''} included as player-provided context.</div>`:''}
     ${activePairs.length?`<div style="background:rgba(93,186,112,.08);border:1px solid rgba(93,186,112,.3);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.7);">🤝 <strong style="color:#5dba70;">Pairing synergy active: ${activePairs.map(p=>p.label).join(', ')}.</strong> Per the official Combat Guide, these are designed to fight as a combined front — the single-target Tank unit holds the enemy's primary attacker while the AoE/DPS half clears supporting troops. +${activePairs.length*3}% included in Combat Advantage above.</div>`
-      :`<div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.45);">💡 No confirmed unit pairing active in your composition. Swordsmen+Archers, Axemen+Catapults, and Cavalry+Crossbowmen are designed to fight together — pairing at least ${PAIR_MIN_PCT}% of each half can add a synergy bonus to Combat Advantage.</div>`}
+      :`<div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.45);">💡 No confirmed unit pairing active in your composition. Swordsmen+Archers, Axemen+Catapults, and Cavalry+Crossbowmen are designed to fight together — pairing at least ${PAIR_MIN_PCT}% of each half can add a synergy bonus to Combat Advantage.</div>`}
     ${activePhobias.length?`<div style="background:rgba(255,68,68,.1);border:1px solid rgba(255,68,68,.4);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:12px;color:#ffaaaa;">🚨 <strong>Severe phobia trait${activePhobias.length>1?'s':''} detected: ${activePhobias.join(', ')}.</strong> These cause -90% penalties to specific stats (Assault Success, Army Deploy Cost Efficiency, Army Speed, and others depending on the phobia) that aren't fully reflected in the damage/survival numbers above. Treat this noble's combat reliability as significantly degraded until the phobia is addressed.</div>`:''}
     ${martialApplied>0?`<div style="background:rgba(255,170,80,.08);border:1px solid rgba(255,170,80,.3);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:12px;color:#ffcc99;">⚔️ <strong>Martial trait applied: +${Math.round(martialApplied*100)}% damage</strong>, weighted by your current army composition (Martial only boosts the specific troop categories it lists — Infantry/Ranged/Mounted/Machine — not the whole army equally). Changing your troop mix will change this contribution.</div>`:''}
     ${tierResult.hasEstimated?`<div style="background:rgba(255,214,0,.06);border:1px solid rgba(255,214,0,.2);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:15px;color:rgba(255,255,255,.92);">⚠️ Axemen tier ratios in this army are estimated from the cross-troop-type pattern, not measured from a confirmed Axemen stat card. Treat Axemen-heavy results as a rough estimate.</div>`:''}
-    ${mythicalTraitsApplied.length?`<div style="background:rgba(255,214,0,.1);border:1px solid var(--re-yellow);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.8);box-shadow:0 0 10px rgba(255,214,0,.15);">✨ <strong style="color:var(--re-yellow);">Mythical trait${mythicalTraitsApplied.length>1?'s':''} applied: ${mythicalTraitsApplied.join(', ')}.</strong> Confirmed Mythical-tier values are included in this estimate.</div>`:''}
+    ${mythicalTraitsApplied.length?`<div style="background:rgba(255,214,0,.1);border:1px solid var(--ee-yellow);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.8);box-shadow:0 0 10px rgba(255,214,0,.15);">✨ <strong style="color:var(--ee-yellow);">Mythical trait${mythicalTraitsApplied.length>1?'s':''} applied: ${mythicalTraitsApplied.join(', ')}.</strong> Confirmed Mythical-tier values are included in this estimate.</div>`:''}
     <div style="font-family:var(--font-b);font-size:11px;color:rgba(255,255,255,.3);text-align:center;font-style:italic;">Estimate based on entered troop mix and tier, weapon element, verified trait effects, selected champion bonuses, and Red Empire's combat model. Troop tier scaling and elemental advantage magnitude are relative approximations, not exact in-game ratios (only the elemental counter direction is confirmed). Final battles can still vary because of gear, formations, buffs, defenses, terrain, and hidden enemy information.</div>
   `;
 }

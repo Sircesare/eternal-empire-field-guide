@@ -33,7 +33,7 @@ function councilRenderChecklist(){
     const item = COUNCIL_CHECKLIST_ITEMS[i];
     const done = !!state[item.id];
     html += '<div class="council-check-row" onclick="councilToggleCheck(\''+item.id+'\')" style="display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border-radius:8px;cursor:pointer;background:'+(done?'rgba(255,214,0,.08)':'rgba(255,255,255,.03)')+';border:1px solid '+(done?'rgba(255,214,0,.3)':'rgba(255,255,255,.08)')+';margin-bottom:8px;transition:all .15s;">';
-    html += '<span style="min-width:22px;height:22px;border-radius:5px;border:2px solid '+(done?'var(--re-yellow)':'rgba(255,255,255,.3)')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;background:'+(done?'var(--re-yellow)':'transparent')+';color:#07000f;font-weight:900;font-size:13px;">'+(done?'✓':'')+'</span>';
+    html += '<span style="min-width:22px;height:22px;border-radius:5px;border:2px solid '+(done?'var(--ee-yellow)':'rgba(255,255,255,.3)')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;background:'+(done?'var(--ee-yellow)':'transparent')+';color:#07000f;font-weight:900;font-size:13px;">'+(done?'✓':'')+'</span>';
     html += '<span style="font-family:var(--font-b);font-size:13px;line-height:1.55;color:'+(done?'rgba(255,255,255,.9)':'rgba(255,255,255,.65)')+';">'+item.text+'</span>';
     html += '</div>';
   }
@@ -106,8 +106,8 @@ function councilShowDoctrine(key){
   const btn = document.getElementById('council-doc-'+key);
   if(btn){
     btn.style.background = 'rgba(255,214,0,.1)';
-    btn.style.borderColor = 'var(--re-yellow)';
-    btn.style.color = 'var(--re-yellow)';
+    btn.style.borderColor = 'var(--ee-yellow)';
+    btn.style.color = 'var(--ee-yellow)';
   }
   const body = document.getElementById('council-doctrine-body');
   if(body){
@@ -192,17 +192,17 @@ function councilRenderPvpDoctrine(){
   html += '</div>';
 
   // checklist
-  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">PvP Readiness Checklist</div>';
+  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">PvP Readiness Checklist</div>';
   html += '<div id="council-pvp-checklist"></div>';
 
   // stages
-  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.06em;margin:22px 0 10px;">Stage Progression — Strategic Recommendation</div>';
+  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.06em;margin:22px 0 10px;">Stage Progression — Strategic Recommendation</div>';
   for(let i=0;i<COUNCIL_PVP_STAGES.length;i++){
     const s = COUNCIL_PVP_STAGES[i];
     html += '<div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 16px;margin-bottom:10px;">';
     html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;">';
-    html += '<span style="background:var(--re-red);color:#fff;font-family:var(--font-d);font-weight:900;font-size:11px;padding:3px 9px;border-radius:20px;">'+s.range+'</span>';
-    html += '<span style="font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--re-white);text-transform:uppercase;letter-spacing:.03em;">'+s.title+'</span>';
+    html += '<span style="background:var(--ee-red);color:#fff;font-family:var(--font-d);font-weight:900;font-size:11px;padding:3px 9px;border-radius:20px;">'+s.range+'</span>';
+    html += '<span style="font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--ee-white);text-transform:uppercase;letter-spacing:.03em;">'+s.title+'</span>';
     html += '</div>';
     html += '<div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;">'+s.body+'</div>';
     html += '</div>';
@@ -237,7 +237,7 @@ function councilRenderPvpChecklist(){
     const item = COUNCIL_PVP_CHECKLIST_ITEMS[i];
     const done = !!state[item.id];
     html += '<div onclick="councilTogglePvpCheck(\''+item.id+'\')" style="display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border-radius:8px;cursor:pointer;background:'+(done?'rgba(255,214,0,.08)':'rgba(255,255,255,.03)')+';border:1px solid '+(done?'rgba(255,214,0,.3)':'rgba(255,255,255,.08)')+';margin-bottom:8px;transition:all .15s;">';
-    html += '<span style="min-width:22px;height:22px;border-radius:5px;border:2px solid '+(done?'var(--re-yellow)':'rgba(255,255,255,.3)')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;background:'+(done?'var(--re-yellow)':'transparent')+';color:#07000f;font-weight:900;font-size:13px;">'+(done?'✓':'')+'</span>';
+    html += '<span style="min-width:22px;height:22px;border-radius:5px;border:2px solid '+(done?'var(--ee-yellow)':'rgba(255,255,255,.3)')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;background:'+(done?'var(--ee-yellow)':'transparent')+';color:#07000f;font-weight:900;font-size:13px;">'+(done?'✓':'')+'</span>';
     html += '<span style="font-family:var(--font-b);font-size:13px;line-height:1.55;color:'+(done?'rgba(255,255,255,.9)':'rgba(255,255,255,.65)')+';">'+item.text+'</span>';
     html += '</div>';
   }
@@ -299,16 +299,16 @@ function councilRenderBreederDoctrine(){
   html += '<strong style="color:#c090ff;">Red Empire Rule:</strong> A noble is not weak just because they are not on the battlefield yet.';
   html += '</div>';
 
-  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Breeding Readiness Checklist</div>';
+  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Breeding Readiness Checklist</div>';
   html += '<div id="council-breeder-checklist"></div>';
 
-  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.06em;margin:22px 0 10px;">Stage Progression — Strategic Recommendation</div>';
+  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.06em;margin:22px 0 10px;">Stage Progression — Strategic Recommendation</div>';
   for(let i=0;i<COUNCIL_BREEDER_STAGES.length;i++){
     const s = COUNCIL_BREEDER_STAGES[i];
     html += '<div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 16px;margin-bottom:10px;">';
     html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;">';
     html += '<span style="background:#7000ff;color:#fff;font-family:var(--font-d);font-weight:900;font-size:11px;padding:3px 9px;border-radius:20px;">'+s.range+'</span>';
-    html += '<span style="font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--re-white);text-transform:uppercase;letter-spacing:.03em;">'+s.title+'</span>';
+    html += '<span style="font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--ee-white);text-transform:uppercase;letter-spacing:.03em;">'+s.title+'</span>';
     html += '</div>';
     html += '<div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;">'+s.body+'</div>';
     html += '</div>';
@@ -333,7 +333,7 @@ function councilRenderBreederChecklist(){
     const item = COUNCIL_BREEDER_CHECKLIST_ITEMS[i];
     const done = !!state[item.id];
     html += '<div onclick="councilToggleBreederCheck(\''+item.id+'\')" style="display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border-radius:8px;cursor:pointer;background:'+(done?'rgba(255,214,0,.08)':'rgba(255,255,255,.03)')+';border:1px solid '+(done?'rgba(255,214,0,.3)':'rgba(255,255,255,.08)')+';margin-bottom:8px;transition:all .15s;">';
-    html += '<span style="min-width:22px;height:22px;border-radius:5px;border:2px solid '+(done?'var(--re-yellow)':'rgba(255,255,255,.3)')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;background:'+(done?'var(--re-yellow)':'transparent')+';color:#07000f;font-weight:900;font-size:13px;">'+(done?'✓':'')+'</span>';
+    html += '<span style="min-width:22px;height:22px;border-radius:5px;border:2px solid '+(done?'var(--ee-yellow)':'rgba(255,255,255,.3)')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;background:'+(done?'var(--ee-yellow)':'transparent')+';color:#07000f;font-weight:900;font-size:13px;">'+(done?'✓':'')+'</span>';
     html += '<span style="font-family:var(--font-b);font-size:13px;line-height:1.55;color:'+(done?'rgba(255,255,255,.9)':'rgba(255,255,255,.65)')+';">'+item.text+'</span>';
     html += '</div>';
   }
@@ -413,19 +413,19 @@ function councilRenderK30Doctrine(){
   let html = '<div style="padding:0 4px;">';
 
   html += '<div style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.3);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;">';
-  html += '<strong style="color:var(--re-yellow);">Red Empire Rule:</strong> A developed K28 is more dangerous than a rushed K30.';
+  html += '<strong style="color:var(--ee-yellow);">Red Empire Rule:</strong> A developed K28 is more dangerous than a rushed K30.';
   html += '</div>';
 
-  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">K30 Readiness Checklist</div>';
+  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">K30 Readiness Checklist</div>';
   html += '<div id="council-k30-checklist"></div>';
 
-  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.06em;margin:22px 0 10px;">Stage Progression — Strategic Recommendation</div>';
+  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.06em;margin:22px 0 10px;">Stage Progression — Strategic Recommendation</div>';
   for(let i=0;i<COUNCIL_K30_STAGES.length;i++){
     const s = COUNCIL_K30_STAGES[i];
     html += '<div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 16px;margin-bottom:10px;">';
     html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;">';
-    html += '<span style="background:var(--re-yellow);color:#07000f;font-family:var(--font-d);font-weight:900;font-size:11px;padding:3px 9px;border-radius:20px;">'+s.range+'</span>';
-    html += '<span style="font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--re-white);text-transform:uppercase;letter-spacing:.03em;">'+s.title+'</span>';
+    html += '<span style="background:var(--ee-yellow);color:#07000f;font-family:var(--font-d);font-weight:900;font-size:11px;padding:3px 9px;border-radius:20px;">'+s.range+'</span>';
+    html += '<span style="font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--ee-white);text-transform:uppercase;letter-spacing:.03em;">'+s.title+'</span>';
     html += '</div>';
     html += '<div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;">'+s.body+'</div>';
     html += '</div>';
@@ -437,7 +437,7 @@ function councilRenderK30Doctrine(){
   for(let i=0;i<COUNCIL_K30_DO_NOT_RUSH.length;i++){ html += '<li>'+COUNCIL_K30_DO_NOT_RUSH[i]+'</li>'; }
   html += '</ul></div>';
 
-  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">K20\u2013K30 Total Upgrade Cost — Verified Red Empire Player Data</div>';
+  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">K20\u2013K30 Total Upgrade Cost — Verified Red Empire Player Data</div>';
   html += '<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-family:var(--font-b);font-size:12px;">';
   html += '<tr style="border-bottom:1px solid rgba(255,255,255,.15);"><th style="text-align:left;padding:6px 8px;color:rgba(255,255,255,.5);">Transition</th><th style="text-align:left;padding:6px 8px;color:rgba(255,255,255,.5);">Stone</th><th style="text-align:left;padding:6px 8px;color:rgba(255,255,255,.5);">Iron</th></tr>';
   for(let i=0;i<COUNCIL_K30_COSTS.length;i++){
@@ -464,7 +464,7 @@ function councilRenderK30Checklist(){
     const item = COUNCIL_K30_CHECKLIST_ITEMS[i];
     const done = !!state[item.id];
     html += '<div onclick="councilToggleK30Check(\''+item.id+'\')" style="display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border-radius:8px;cursor:pointer;background:'+(done?'rgba(255,214,0,.08)':'rgba(255,255,255,.03)')+';border:1px solid '+(done?'rgba(255,214,0,.3)':'rgba(255,255,255,.08)')+';margin-bottom:8px;transition:all .15s;">';
-    html += '<span style="min-width:22px;height:22px;border-radius:5px;border:2px solid '+(done?'var(--re-yellow)':'rgba(255,255,255,.3)')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;background:'+(done?'var(--re-yellow)':'transparent')+';color:#07000f;font-weight:900;font-size:13px;">'+(done?'✓':'')+'</span>';
+    html += '<span style="min-width:22px;height:22px;border-radius:5px;border:2px solid '+(done?'var(--ee-yellow)':'rgba(255,255,255,.3)')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;background:'+(done?'var(--ee-yellow)':'transparent')+';color:#07000f;font-weight:900;font-size:13px;">'+(done?'✓':'')+'</span>';
     html += '<span style="font-family:var(--font-b);font-size:13px;line-height:1.55;color:'+(done?'rgba(255,255,255,.9)':'rgba(255,255,255,.65)')+';">'+item.text+'</span>';
     html += '</div>';
   }
@@ -541,11 +541,11 @@ function councilRenderRolesDoctrine(){
     const r = COUNCIL_ROLES[i];
     html += '<div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;margin-bottom:10px;">';
     html += '<div onclick="councilToggleRole(\''+r.id+'\')" id="council-role-header-'+r.id+'" style="padding:14px 16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;">';
-    html += '<span style="font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--re-white);text-transform:uppercase;letter-spacing:.03em;">'+r.icon+' '+r.name+'</span>';
+    html += '<span style="font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--ee-white);text-transform:uppercase;letter-spacing:.03em;">'+r.icon+' '+r.name+'</span>';
     html += '<span id="council-role-arrow-'+r.id+'" style="color:rgba(255,255,255,.4);font-size:14px;transition:transform .2s;display:inline-block;">▾</span>';
     html += '</div>';
     html += '<div id="council-role-body-'+r.id+'" style="display:none;padding:0 16px 16px;font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.6);line-height:1.7;">';
-    html += '<div style="margin-bottom:8px;"><strong style="color:var(--re-yellow);">Purpose:</strong> '+r.purpose+'</div>';
+    html += '<div style="margin-bottom:8px;"><strong style="color:var(--ee-yellow);">Purpose:</strong> '+r.purpose+'</div>';
     html += '<div style="margin-bottom:8px;"><strong style="color:#88cc88;">Core Research:</strong> '+r.core+'</div>';
     html += '<div style="margin-bottom:8px;"><strong style="color:#66aaff;">Useful Secondary:</strong> '+r.secondary+'</div>';
     html += '<div style="margin-bottom:8px;"><strong style="color:rgba(255,255,255,.5);">Delay:</strong> '+r.delay+'</div>';
@@ -677,7 +677,7 @@ function councilRunAudit(){
   for(let i=0;i<flags.length;i++){
     const f = flags[i];
     html += '<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:14px 16px;margin-bottom:10px;">';
-    html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">'+f.tag+'</div>';
+    html += '<div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">'+f.tag+'</div>';
     html += '<div style="font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.6);line-height:1.6;">'+f.desc+'</div>';
     html += '</div>';
   }
@@ -731,19 +731,19 @@ function councilShowArmy(key){
   const btn = document.getElementById('council-army-'+key);
   if(btn){
     btn.style.background = 'rgba(255,214,0,.1)';
-    btn.style.borderColor = 'var(--re-yellow)';
-    btn.style.color = 'var(--re-yellow)';
+    btn.style.borderColor = 'var(--ee-yellow)';
+    btn.style.color = 'var(--ee-yellow)';
   }
   const body = document.getElementById('council-army-body');
   if(!body) return;
   let html = '<div style="font-family:var(--font-a);font-size:11px;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:12px;">Red Empire Strategic Recommendation</div>';
-  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:16px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;">'+a.label+'</div>';
+  html += '<div style="font-family:var(--font-d);font-weight:800;font-size:16px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;">'+a.label+'</div>';
   html += '<div style="margin-bottom:10px;"><strong style="color:#88cc88;font-family:var(--font-b);font-size:13px;">Primary Research:</strong> <span style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.65);line-height:1.6;">'+a.primary+'</span></div>';
   html += '<div style="margin-bottom:10px;"><strong style="color:#66aaff;font-family:var(--font-b);font-size:13px;">Useful Secondary:</strong> <span style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.65);line-height:1.6;">'+a.secondary+'</span></div>';
   html += '<div style="margin-bottom:10px;"><strong style="color:rgba(255,255,255,.5);font-family:var(--font-b);font-size:13px;">Delay:</strong> <span style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.65);line-height:1.6;">'+a.delay+'</span></div>';
   html += '<div style="margin-bottom:10px;"><strong style="color:#c090ff;font-family:var(--font-b);font-size:13px;">Noble Line:</strong> <span style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.65);line-height:1.6;">'+a.nobleLine+'</span></div>';
   html += '<div style="margin-bottom:10px;"><strong style="color:#ffaa44;font-family:var(--font-b);font-size:13px;">Siege Relevance:</strong> <span style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.65);line-height:1.6;">'+a.siege+'</span></div>';
-  html += '<div style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.25);border-radius:8px;padding:12px 14px;margin-top:14px;"><strong style="color:var(--re-yellow);font-family:var(--font-b);font-size:13px;">Next Focus:</strong> <span style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;">'+a.next+'</span></div>';
+  html += '<div style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.25);border-radius:8px;padding:12px 14px;margin-top:14px;"><strong style="color:var(--ee-yellow);font-family:var(--font-b);font-size:13px;">Next Focus:</strong> <span style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;">'+a.next+'</span></div>';
   body.innerHTML = html;
 }
 
@@ -799,7 +799,7 @@ function councilFilterRoi(filter){
     b.style.color = 'rgba(255,255,255,.6)';
   });
   const btn = document.getElementById('council-roi-f-'+filter);
-  if(btn){ btn.style.background = 'rgba(255,214,0,.15)'; btn.style.color = 'var(--re-yellow)'; }
+  if(btn){ btn.style.background = 'rgba(255,214,0,.15)'; btn.style.color = 'var(--ee-yellow)'; }
   councilRenderRoiTable(filter);
 }
 
@@ -862,7 +862,7 @@ function councilRenderKeepPlanner(){
     const c = COUNCIL_KEEP_CARDS[i];
     html += '<div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;margin-bottom:10px;">';
     html += '<div onclick="councilToggleKeepCard(\''+c.id+'\')" style="padding:14px 16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;">';
-    html += '<span style="font-family:var(--font-d);font-weight:800;font-size:16px;color:var(--re-white);letter-spacing:.03em;">'+c.t+'</span>';
+    html += '<span style="font-family:var(--font-d);font-weight:800;font-size:16px;color:var(--ee-white);letter-spacing:.03em;">'+c.t+'</span>';
     html += '<span id="council-keep-arrow-'+c.id+'" style="color:rgba(255,255,255,.4);font-size:15px;transition:transform .2s;display:inline-block;">▾</span>';
     html += '</div>';
     html += '<div id="council-keep-body-'+c.id+'" style="display:none;padding:0 16px 16px;">';

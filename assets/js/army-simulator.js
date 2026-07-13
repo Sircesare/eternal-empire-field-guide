@@ -19,7 +19,7 @@ function handleNobleUpload(e){
     document.getElementById('preview-img').src=ev.target.result;
     document.getElementById('noble-preview').style.display='block';
     document.getElementById('analyze-btn-wrap').style.display='block';document.getElementById('analyze-btn').style.display='inline-block';
-    document.getElementById('upload-area').style.borderColor='var(--re-yellow)';
+    document.getElementById('upload-area').style.borderColor='var(--ee-yellow)';
     document.getElementById('noble-extra-upload-area').style.display='block';
   };
   reader.readAsDataURL(file);
@@ -90,13 +90,13 @@ Output ONLY valid JSON, no markdown, no backticks:
   }
 }
 function buildResultCard(b,counter){
-  return`<div style="background:#fff;border-radius:10px;border:2px solid var(--re-red);overflow:hidden;margin-bottom:10px;">
-    <div style="background:var(--re-red);padding:9px 15px;"><div style="font-family:var(--font-d);font-weight:800;font-size:16px;color:var(--re-yellow);letter-spacing:.08em;text-transform:uppercase;">${b.title}</div></div>
+  return`<div style="background:#fff;border-radius:10px;border:2px solid var(--ee-red);overflow:hidden;margin-bottom:10px;">
+    <div style="background:var(--ee-red);padding:9px 15px;"><div style="font-family:var(--font-d);font-weight:800;font-size:16px;color:var(--ee-yellow);letter-spacing:.08em;text-transform:uppercase;">${b.title}</div></div>
     <div style="padding:12px 15px;">
-      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f0e0e0;font-family:var(--font-b);font-size:12px;color:#1a0008;font-weight:600;"><span>${b.primary_troop}</span><span style="font-family:var(--font-d);font-weight:800;font-size:17px;color:var(--re-red);">${b.primary_pct}%</span></div>
-      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f0e0e0;font-family:var(--font-b);font-size:12px;color:#1a0008;font-weight:600;"><span>${b.secondary_troop}</span><span style="font-family:var(--font-d);font-weight:800;font-size:17px;color:var(--re-red);">${b.secondary_pct}%</span></div>
-      <div style="display:flex;justify-content:space-between;padding:5px 0;font-family:var(--font-b);font-size:12px;color:#1a0008;font-weight:600;"><span>${b.support_troop}</span><span style="font-family:var(--font-d);font-weight:800;font-size:17px;color:var(--re-red);">${b.support_pct}%</span></div>
-      <div style="margin-top:9px;background:#fff8f8;border-left:3px solid var(--re-red);padding:7px 9px;font-family:var(--font-b);font-size:11px;color:#4a1020;font-weight:600;border-radius:0 5px 5px 0;">💡 ${b.strategy_tip}</div>
+      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f0e0e0;font-family:var(--font-b);font-size:12px;color:#1a0008;font-weight:600;"><span>${b.primary_troop}</span><span style="font-family:var(--font-d);font-weight:800;font-size:17px;color:var(--ee-red);">${b.primary_pct}%</span></div>
+      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f0e0e0;font-family:var(--font-b);font-size:12px;color:#1a0008;font-weight:600;"><span>${b.secondary_troop}</span><span style="font-family:var(--font-d);font-weight:800;font-size:17px;color:var(--ee-red);">${b.secondary_pct}%</span></div>
+      <div style="display:flex;justify-content:space-between;padding:5px 0;font-family:var(--font-b);font-size:12px;color:#1a0008;font-weight:600;"><span>${b.support_troop}</span><span style="font-family:var(--font-d);font-weight:800;font-size:17px;color:var(--ee-red);">${b.support_pct}%</span></div>
+      <div style="margin-top:9px;background:#fff8f8;border-left:3px solid var(--ee-red);padding:7px 9px;font-family:var(--font-b);font-size:11px;color:#4a1020;font-weight:600;border-radius:0 5px 5px 0;">💡 ${b.strategy_tip}</div>
       ${counter?`<div style="margin-top:7px;background:#ffe0e0;border-left:3px solid #ff4444;padding:7px 9px;font-family:var(--font-b);font-size:11px;color:#8b0000;font-weight:600;border-radius:0 5px 5px 0;">⚠ Counter: ${counter}</div>`:''}
     </div></div>`;
 }
@@ -115,7 +115,7 @@ function renderBuilds(r){
   const line=roleLabels[r.role]||r.role;
   const crosslink=`
     <div style="margin-top:12px;padding:10px 14px;background:rgba(255,214,0,.06);border:1px solid rgba(255,214,0,.2);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-      <div style="font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.55);">This noble is a <strong style="color:var(--re-yellow);">${line}</strong> — read the full PvP doctrine for this line.</div>
+      <div style="font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.55);">This noble is a <strong style="color:var(--ee-yellow);">${line}</strong> — read the full PvP doctrine for this line.</div>
       <button onclick="showView('pvp','${anchor}')" style="background:rgba(217,0,38,.15);border:1px solid rgba(217,0,38,.5);border-radius:6px;padding:6px 12px;cursor:pointer;font-family:var(--font-d);font-weight:700;font-size:12px;color:#ff8080;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;">⚔️ ${line} PvP Guide →</button>
     </div>`;
   document.getElementById('pve-result').innerHTML=buildResultCard(r.pve_build,null)+crosslink;
@@ -131,20 +131,20 @@ function renderBuilds(r){
     const innLabel=r.innate_count_label, innFound=r.innate_count_identified;
     const inhShort=inhLabel!=null&&inhFound!=null&&inhFound<inhLabel;
     const innShort=innLabel!=null&&innFound!=null&&innFound<innLabel;
-    const rowHtml=(label,found,printed)=>printed==null?'':`<span style="font-family:var(--font-b);font-size:12px;color:${found<printed?'#ff8080':'rgba(255,255,255,.6)'};">${label}: <strong style="color:${found<printed?'#ff8080':'var(--re-yellow)'};">${found??'?'}/${printed}</strong> identified</span>`;
-    document.getElementById('pve-result').innerHTML+=`<div style="margin-top:12px;padding:10px 14px;background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:8px;display:flex;gap:18px;flex-wrap:wrap;">${rowHtml('Inherited',inhFound,inhLabel)}${rowHtml('Innate',innFound,innLabel)}</div>`;
+    const rowHtml=(label,found,printed)=>printed==null?'':`<span style="font-family:var(--font-b);font-size:12px;color:${found<printed?'#ff8080':'rgba(255,255,255,.6)'};">${label}: <strong style="color:${found<printed?'#ff8080':'var(--ee-yellow)'};">${found??'?'}/${printed}</strong> identified</span>`;
+    document.getElementById('pve-result').innerHTML+=`<div style="margin-top:12px;padding:10px 14px;background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:8px;display:flex;gap:18px;flex-wrap:wrap;">${rowHtml('Inherited',inhFound,inhLabel)}${rowHtml('Innate',innFound,innLabel)}</div>`;
     if(inhShort||innShort){
-      document.getElementById('pve-result').innerHTML+=`<div style="margin-top:8px;padding:12px 14px;background:rgba(217,0,38,.08);border:1px solid rgba(217,0,38,.3);border-radius:8px;font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.7);">⚠️ <strong style="color:var(--re-red);">Fewer traits identified than the screenshot shows.</strong> ${inhShort?`Inherited is short by ${inhLabel-inhFound}. `:''}${innShort?`Innate is short by ${innLabel-innFound}. `:''}Scroll to the missing section in-game and add a 2nd screenshot, then re-analyze.</div>`;
+      document.getElementById('pve-result').innerHTML+=`<div style="margin-top:8px;padding:12px 14px;background:rgba(217,0,38,.08);border:1px solid rgba(217,0,38,.3);border-radius:8px;font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.7);">⚠️ <strong style="color:var(--ee-red);">Fewer traits identified than the screenshot shows.</strong> ${inhShort?`Inherited is short by ${inhLabel-inhFound}. `:''}${innShort?`Innate is short by ${innLabel-innFound}. `:''}Scroll to the missing section in-game and add a 2nd screenshot, then re-analyze.</div>`;
     }
   } else if(r.traits_possibly_incomplete){
-    document.getElementById('pve-result').innerHTML+=`<div style="margin-top:12px;padding:12px 14px;background:rgba(217,0,38,.08);border:1px solid rgba(217,0,38,.3);border-radius:8px;font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.7);">⚠️ <strong style="color:var(--re-red);">Trait list may be incomplete.</strong> This noble's trait grid looked cropped — if they have more than 6 Innate or 6 Inherited traits, scroll down and re-analyze with a 2nd screenshot of the rest.</div>`;
+    document.getElementById('pve-result').innerHTML+=`<div style="margin-top:12px;padding:12px 14px;background:rgba(217,0,38,.08);border:1px solid rgba(217,0,38,.3);border-radius:8px;font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.7);">⚠️ <strong style="color:var(--ee-red);">Trait list may be incomplete.</strong> This noble's trait grid looked cropped — if they have more than 6 Innate or 6 Inherited traits, scroll down and re-analyze with a 2nd screenshot of the rest.</div>`;
   }
 
   const allDisplayTraits=[...(r.detected_traits||[]),...(r.non_combat_traits||[])];
   if(allDisplayTraits.length){
     const block=renderTabbedTraits(allDisplayTraits,{editable:true});
     const totalsBlock=renderTraitTotals(r.detected_traits||[]);
-    const noteHtml=`<div style="margin-top:12px;padding:12px 14px;background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:8px;">
+    const noteHtml=`<div style="margin-top:12px;padding:12px 14px;background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:8px;">
       ${totalsBlock}
       <div style="font-family:var(--font-b);font-size:11px;color:rgba(255,255,255,.4);font-style:italic;margin-bottom:8px;margin-top:${totalsBlock?'12px':'0'};">Traits organized by stat category. Only Battle Damage and Battle Durability traits factor into the army build math above — everything else is reference only.</div>
       ${block}

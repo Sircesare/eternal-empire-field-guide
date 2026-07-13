@@ -19,7 +19,7 @@ function handlePairUpload(e, num){
     document.getElementById('pair-extra-preview-'+num).style.display = 'none';
     document.getElementById('pair-img-'+num).src = ev.target.result;
     document.getElementById('pair-preview-'+num).style.display = 'block';
-    document.getElementById('pair-upload-'+num).style.borderColor = 'var(--re-yellow)';
+    document.getElementById('pair-upload-'+num).style.borderColor = 'var(--ee-yellow)';
     document.getElementById('pair-extra-upload-'+num).style.display = 'block';
     if(pairB64[1] && pairB64[2]){
       document.getElementById('pair-analyze-btn').style.display = 'block';
@@ -350,13 +350,13 @@ Output ONLY valid JSON, no markdown, no backticks:
 }
 
 function renderPairResult(r){
-  const verdictColor = r.compatibility_score >= 8 ? '#5dba70' : r.compatibility_score >= 6 ? 'var(--re-yellow)' : '#ff7070';
+  const verdictColor = r.compatibility_score >= 8 ? '#5dba70' : r.compatibility_score >= 6 ? 'var(--ee-yellow)' : '#ff7070';
   const verdictBg = r.compatibility_score >= 8 ? 'rgba(61,122,74,.15)' : r.compatibility_score >= 6 ? 'rgba(255,214,0,.08)' : 'rgba(217,0,38,.12)';
   const verdictBorder = r.compatibility_score >= 8 ? 'rgba(61,122,74,.4)' : r.compatibility_score >= 6 ? 'rgba(255,214,0,.3)' : 'rgba(217,0,38,.4)';
 
   const scoreBar = (val, max=10) => `
     <div style="background:rgba(255,255,255,.07);border-radius:4px;height:6px;overflow:hidden;margin-top:4px;">
-      <div style="height:100%;width:${(val/max)*100}%;background:var(--re-yellow);border-radius:4px;"></div>
+      <div style="height:100%;width:${(val/max)*100}%;background:var(--ee-yellow);border-radius:4px;"></div>
     </div>`;
 
   document.getElementById('pair-result').style.display = 'block';
@@ -368,53 +368,53 @@ function renderPairResult(r){
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
-      <div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:10px;padding:14px;">
-        <div style="font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--re-yellow);text-transform:uppercase;margin-bottom:6px;">${r.noble_1.name}</div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:10px;padding:14px;">
+        <div style="font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--ee-yellow);text-transform:uppercase;margin-bottom:6px;">${r.noble_1.name}</div>
         <div style="font-family:var(--font-a);font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase;">${r.noble_1.role} · ${r.noble_1.quality}</div>
-        <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;">${r.noble_1.key_traits.map(t=>`<span style="background:rgba(255,255,255,.06);border:1px solid var(--re-border);border-radius:4px;padding:2px 7px;font-family:var(--font-a);font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.06em;">${t}</span>`).join('')}</div>
+        <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;">${r.noble_1.key_traits.map(t=>`<span style="background:rgba(255,255,255,.06);border:1px solid var(--ee-border);border-radius:4px;padding:2px 7px;font-family:var(--font-a);font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.06em;">${t}</span>`).join('')}</div>
         ${r.noble_1.traits_possibly_incomplete?`<div style="margin-top:8px;font-family:var(--font-b);font-size:11px;color:#ff8080;">⚠️ Trait grid looked cropped — add a 2nd scrolled screenshot of this noble and re-analyze.</div>`:''}
       </div>
-      <div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:10px;padding:14px;">
-        <div style="font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--re-yellow);text-transform:uppercase;margin-bottom:6px;">${r.noble_2.name}</div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:10px;padding:14px;">
+        <div style="font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--ee-yellow);text-transform:uppercase;margin-bottom:6px;">${r.noble_2.name}</div>
         <div style="font-family:var(--font-a);font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase;">${r.noble_2.role} · ${r.noble_2.quality}</div>
-        <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;">${r.noble_2.key_traits.map(t=>`<span style="background:rgba(255,255,255,.06);border:1px solid var(--re-border);border-radius:4px;padding:2px 7px;font-family:var(--font-a);font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.06em;">${t}</span>`).join('')}</div>
+        <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;">${r.noble_2.key_traits.map(t=>`<span style="background:rgba(255,255,255,.06);border:1px solid var(--ee-border);border-radius:4px;padding:2px 7px;font-family:var(--font-a);font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.06em;">${t}</span>`).join('')}</div>
         ${r.noble_2.traits_possibly_incomplete?`<div style="margin-top:8px;font-family:var(--font-b);font-size:11px;color:#ff8080;">⚠️ Trait grid looked cropped — add a 2nd scrolled screenshot of this noble and re-analyze.</div>`:''}
       </div>
     </div>
 
-    <div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:10px;padding:14px;margin-bottom:12px;">
-      <div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">Score Breakdown</div>
+    <div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:10px;padding:14px;margin-bottom:12px;">
+      <div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">Score Breakdown</div>
       <div style="display:flex;flex-direction:column;gap:10px;">
-        <div><div style="display:flex;justify-content:space-between;font-family:var(--font-a);font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;"><span>Quality Match</span><span style="color:var(--re-yellow);">${r.score_breakdown.quality_score}/10</span></div>${scoreBar(r.score_breakdown.quality_score)}</div>
-        <div><div style="display:flex;justify-content:space-between;font-family:var(--font-a);font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;"><span>Trait Synergy</span><span style="color:var(--re-yellow);">${r.score_breakdown.trait_synergy}/10</span></div>${scoreBar(r.score_breakdown.trait_synergy)}</div>
-        <div><div style="display:flex;justify-content:space-between;font-family:var(--font-a);font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;"><span>Role Line Match</span><span style="color:var(--re-yellow);">${r.score_breakdown.line_match}/10</span></div>${scoreBar(r.score_breakdown.line_match)}</div>
+        <div><div style="display:flex;justify-content:space-between;font-family:var(--font-a);font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;"><span>Quality Match</span><span style="color:var(--ee-yellow);">${r.score_breakdown.quality_score}/10</span></div>${scoreBar(r.score_breakdown.quality_score)}</div>
+        <div><div style="display:flex;justify-content:space-between;font-family:var(--font-a);font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;"><span>Trait Synergy</span><span style="color:var(--ee-yellow);">${r.score_breakdown.trait_synergy}/10</span></div>${scoreBar(r.score_breakdown.trait_synergy)}</div>
+        <div><div style="display:flex;justify-content:space-between;font-family:var(--font-a);font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;"><span>Role Line Match</span><span style="color:var(--ee-yellow);">${r.score_breakdown.line_match}/10</span></div>${scoreBar(r.score_breakdown.line_match)}</div>
         ${r.score_breakdown.negative_penalty > 0 ? `<div><div style="display:flex;justify-content:space-between;font-family:var(--font-a);font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;"><span>Negative Penalty</span><span style="color:#ff7070;">-${r.score_breakdown.negative_penalty}</span></div><div style="background:rgba(255,255,255,.07);border-radius:4px;height:6px;overflow:hidden;margin-top:4px;"><div style="height:100%;width:${(r.score_breakdown.negative_penalty/10)*100}%;background:#ff7070;border-radius:4px;"></div></div></div>` : ''}
       </div>
     </div>
 
     ${r.red_flags && r.red_flags.length ? `
     <div style="background:rgba(217,0,38,.08);border:1px solid rgba(217,0,38,.3);border-radius:10px;padding:14px;margin-bottom:12px;">
-      <div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-red);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">⚠️ Red Flags</div>
+      <div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-red);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">⚠️ Red Flags</div>
       ${r.red_flags.map(f=>`<div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.65);padding:3px 0;">• ${f}</div>`).join('')}
     </div>` : ''}
 
     ${r.trait_inheritance && r.trait_inheritance.length ? `
-    <div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:10px;padding:14px;margin-bottom:12px;">
-      <div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">🧬 Likely Inherited Traits</div>
-      <div style="display:flex;flex-wrap:wrap;gap:6px;">${r.trait_inheritance.map(t=>`<span style="background:rgba(255,214,0,.1);border:1px solid rgba(255,214,0,.3);border-radius:6px;padding:4px 10px;font-family:var(--font-d);font-size:12px;color:var(--re-yellow);font-weight:700;">${t}</span>`).join('')}</div>
+    <div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:10px;padding:14px;margin-bottom:12px;">
+      <div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">🧬 Likely Inherited Traits</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">${r.trait_inheritance.map(t=>`<span style="background:rgba(255,214,0,.1);border:1px solid rgba(255,214,0,.3);border-radius:6px;padding:4px 10px;font-family:var(--font-d);font-size:12px;color:var(--ee-yellow);font-weight:700;">${t}</span>`).join('')}</div>
     </div>` : ''}
 
     ${(r.mobility_economy_traits&&r.mobility_economy_traits.length)||(r.dynasty_action_traits&&r.dynasty_action_traits.length) ? `
-    <div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:10px;padding:14px;margin-bottom:12px;">
-      <div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">📊 Full Trait Breakdown — Not Counted in Score Above</div>
+    <div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:10px;padding:14px;margin-bottom:12px;">
+      <div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">📊 Full Trait Breakdown — Not Counted in Score Above</div>
       <div style="font-family:var(--font-b);font-size:11px;color:rgba(255,255,255,.4);font-style:italic;margin-bottom:8px;">Organized by stat category for reference. Only quality, trait synergy, and line match (above) feed the compatibility score.</div>
       ${renderTabbedTraits([...(r.mobility_economy_traits||[]),...(r.dynasty_action_traits||[])].map(t=>({name:t})))}
       ${r.mobility_economy_notes?`<div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;margin-top:6px;">${r.mobility_economy_notes}</div>`:''}
       ${r.dynasty_action_notes?`<div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;margin-top:6px;">${r.dynasty_action_notes}</div>`:''}
     </div>` : ''}
 
-    <div style="background:rgba(255,255,255,.03);border:1px solid var(--re-border);border-radius:10px;padding:14px;">
-      <div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--re-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">📋 Recommended Child Role · ${r.recommended_child_role}</div>
+    <div style="background:rgba(255,255,255,.03);border:1px solid var(--ee-border);border-radius:10px;padding:14px;">
+      <div style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--ee-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">📋 Recommended Child Role · ${r.recommended_child_role}</div>
       <div style="font-family:var(--font-b);font-size:14px;color:rgba(255,255,255,.7);line-height:1.7;">${r.breeding_notes}</div>
     </div>
   `;
