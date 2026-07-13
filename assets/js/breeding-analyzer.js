@@ -303,7 +303,7 @@ Output ONLY valid JSON, no markdown, no backticks:
     if(pairExtraB64[1]) imageBlocks.push({type:'image', source:{type:'base64', media_type:pairExtraMimeType[1]||'image/jpeg', data:pairExtraB64[1]}});
     imageBlocks.push({type:'image', source:{type:'base64', media_type:pairMimeType[2]||'image/jpeg', data:pairB64[2]}});
     if(pairExtraB64[2]) imageBlocks.push({type:'image', source:{type:'base64', media_type:pairExtraMimeType[2]||'image/jpeg', data:pairExtraB64[2]}});
-    const resp = await fetch('https://redempire-ai.tr4k2tr4k.workers.dev', {
+    const resp = await fetch('https://eternalempire-ai.tr4k2tr4k.workers.dev', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

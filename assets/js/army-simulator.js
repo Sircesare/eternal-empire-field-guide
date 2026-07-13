@@ -55,7 +55,7 @@ Output ONLY valid JSON, no markdown, no backticks:
   try{
     const imageBlocks=[{type:'image',source:{type:'base64',media_type:uploadedMimeType||'image/jpeg',data:uploadedB64}}];
     if(uploadedExtraB64) imageBlocks.push({type:'image',source:{type:'base64',media_type:uploadedExtraMimeType||'image/jpeg',data:uploadedExtraB64}});
-    const resp=await fetch('https://redempire-ai.tr4k2tr4k.workers.dev',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:2500,messages:[{role:'user',content:[...imageBlocks,{type:'text',text:prompt}]}]})});
+    const resp=await fetch('https://eternalempire-ai.tr4k2tr4k.workers.dev',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:2500,messages:[{role:'user',content:[...imageBlocks,{type:'text',text:prompt}]}]})});
     if(!resp.ok){
       const errText=await resp.text().catch(()=>'');
       throw new Error(`Worker returned ${resp.status}: ${errText.slice(0,200)}`);
