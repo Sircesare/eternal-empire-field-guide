@@ -407,3 +407,76 @@ button .ee-auto-icon,a .ee-auto-icon{pointer-events:none;}
     radial-gradient(circle at 100% 0,rgba(66,239,255,.11),transparent 42%),
     linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.055))!important;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   SITE-WIDE HERO ART BACKGROUND
+   Uses the homepage hero artwork as a fixed, responsive backdrop.
+   background-size: cover preserves aspect ratio and crops safely.
+═══════════════════════════════════════════════════════════════ */
+html{
+  background:#10002b;
+}
+body{
+  position:relative;
+  min-height:100vh;
+  background:
+    linear-gradient(180deg,rgba(8,0,34,.76),rgba(26,0,62,.84) 48%,rgba(8,0,28,.9)),
+    url('../images/eternal-empire-gen-alpha-hero.png') center top / cover fixed no-repeat!important;
+}
+
+/* Keep the existing star texture above the artwork but below content. */
+body::before{
+  z-index:0!important;
+  opacity:.18!important;
+}
+body>*{
+  position:relative;
+  z-index:1;
+}
+
+/* Let the artwork remain visible while keeping every page readable. */
+.view{
+  background:linear-gradient(180deg,rgba(12,0,42,.36),rgba(20,0,56,.5))!important;
+}
+.view>.section-wrap,
+.view>section.section-wrap{
+  background:linear-gradient(145deg,rgba(35,8,83,.72),rgba(19,3,54,.62))!important;
+  backdrop-filter:blur(12px) saturate(135%);
+  -webkit-backdrop-filter:blur(12px) saturate(135%);
+}
+
+/* The home hero already contains the same artwork, so keep it crisp. */
+#view-home .ee-genalpha-hero{
+  background:#130031!important;
+}
+
+@media (max-width:900px){
+  body{
+    background:
+      linear-gradient(180deg,rgba(8,0,34,.8),rgba(26,0,62,.88) 48%,rgba(8,0,28,.93)),
+      url('../images/eternal-empire-gen-alpha-hero.png') 48% top / auto 100vh fixed no-repeat!important;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  body{background-attachment:scroll!important;}
+}
+
+/* BATTLE SIM + PVP — expose the site-wide hero artwork like every other view */
+#view-battlesim > div,
+#view-pvp > div{
+  background:
+    linear-gradient(145deg,rgba(35,8,83,.72),rgba(19,3,54,.62))!important;
+  border:1px solid rgba(255,255,255,.2)!important;
+  box-shadow:
+    0 22px 60px rgba(5,0,30,.38),
+    inset 0 1px 0 rgba(255,255,255,.18),
+    0 0 34px rgba(154,77,255,.14)!important;
+  backdrop-filter:blur(12px) saturate(135%);
+  -webkit-backdrop-filter:blur(12px) saturate(135%);
+}
+
+#view-battlesim,
+#view-pvp{
+  background:linear-gradient(180deg,rgba(12,0,42,.34),rgba(20,0,56,.48))!important;
+}
