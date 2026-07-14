@@ -165,3 +165,36 @@
     init();
   }
 })();
+
+
+// 2026 page-life interactions
+(function(){
+  const tips=[
+    'Finish one progression goal before splitting resources across several upgrades.',
+    'Use short timers while active and long timers before you log off.',
+    'Scout first. A profitable fight is one that costs less than it returns.',
+    'One developed specialist usually beats several under-leveled nobles.',
+    'Save exposed resources by spending them into planned progression before war.',
+    'Coordinate county trades and events so individual actions also help the alliance.'
+  ];
+  window.eeRevealTip=function(btn){
+    const out=btn.parentElement.querySelector('.page-life-tiptext');
+    let next=tips[Math.floor(Math.random()*tips.length)];
+    if(out.textContent===next) next=tips[(tips.indexOf(next)+1)%tips.length];
+    out.textContent=next; btn.textContent='Show another tip';
+    eeToast('Quick tip revealed');
+  };
+  window.eeToast=function(msg){const t=document.getElementById('ee-toast');if(!t)return;t.textContent=msg;t.classList.add('show');clearTimeout(t._timer);t._timer=setTimeout(()=>t.classList.remove('show'),1800)};
+  document.addEventListener('DOMContentLoaded',()=>{
+    const targets=[...document.querySelectorAll('.view:not(#view-home) .section-wrap,.view:not(#view-home) > section')];
+    targets.forEach(el=>el.classList.add('ee-reveal'));
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.06,rootMargin:'0px 0px -40px'});
+    targets.forEach(el=>io.observe(el));
+    const progress=document.getElementById('ee-scroll-progress');
+    const update=()=>{const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?Math.round(scrollY/max*100):0;progress?.querySelector('span')&&(progress.querySelector('span').textContent=pct+'%')};
+    addEventListener('scroll',update,{passive:true});update();
+    progress?.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+    document.getElementById('ee-focus-toggle')?.addEventListener('click',()=>{document.body.classList.toggle('ee-focus');eeToast(document.body.classList.contains('ee-focus')?'Focus mode on':'Focus mode off')});
+    document.querySelectorAll('.view:not(#view-home) [onclick*="toggle"],.view:not(#view-home) .phase-toggle').forEach(el=>{el.addEventListener('click',()=>{el.animate([{transform:'scale(1)'},{transform:'scale(.985)'},{transform:'scale(1)'}],{duration:220})})});
+  });
+})();
