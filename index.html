@@ -486,6 +486,132 @@
         </div>
       </div>
 
+
+      <!-- BELOW K21 ECONOMY GUIDE -->
+      <div id="beginners-economy" style="margin-top:40px;background:linear-gradient(160deg,#1a1400,#241a00,#0a0700);border:1px solid rgba(255,214,0,.38);border-radius:16px;overflow:hidden;">
+        <div onclick="toggleCollapsible(this)" style="position:relative;padding:18px 22px;cursor:pointer;">
+          <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#5dba70,var(--ee-yellow),#5dba70);"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+            <div>
+              <div style="font-family:var(--font-a);font-size:11px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--ee-yellow);margin-bottom:8px;">Below Keep 21</div>
+              <h3 style="font-family:var(--font-d);font-weight:900;font-size:24px;color:var(--ee-white);text-transform:uppercase;letter-spacing:.02em;margin:0 0 6px;">Resource &amp; Trade <span style="color:var(--ee-yellow);">Economy Guide</span></h3>
+              <p class="section-intro" style="font-size:13px;color:rgba(255,255,255,.58);margin:0;line-height:1.5;">Where to get Food, Wood, Stone and Silver — plus Merchant and Collier priorities.</p>
+            </div>
+            <span class="collapse-chevron" style="font-size:20px;color:var(--ee-yellow);flex-shrink:0;transition:transform .25s;transform:rotate(0deg);">▾</span>
+          </div>
+        </div>
+        <div style="display:none;padding:0 22px 22px;">
+
+          <div class="tip-box" style="margin-bottom:16px;"><strong>⚙️ The Economy Loop:</strong> Gather or loot surplus resources → trade them for Silver and Barter Merits → use the Wandering Merchant for protected resources → use a Collier to supply mined and refined materials.</div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:16px;">
+            <div style="background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px;">
+              <div style="font-family:var(--font-d);font-weight:900;font-size:17px;color:#ffe06a;margin-bottom:6px;">🌾 FOOD</div>
+              <div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.72);line-height:1.55;">Best from Farms, crops, quests and profitable targets. Keep enough for troop training, healing and one major rebuild.</div>
+              <div style="font-family:var(--font-d);font-size:12px;color:#ffb0b0;margin-top:8px;">SELL ONLY WITH A LARGE RESERVE</div>
+            </div>
+            <div style="background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px;">
+              <div style="font-family:var(--font-d);font-weight:900;font-size:17px;color:#8ee6a0;margin-bottom:6px;">🪵 WOOD</div>
+              <div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.72);line-height:1.55;">Best from the Sawmill, quests, profitable targets and protected-resource trades. Academy research consumes it quickly.</div>
+              <div style="font-family:var(--font-d);font-size:12px;color:#ffb0b0;margin-top:8px;">AVOID SELLING BEFORE RESEARCH</div>
+            </div>
+            <div style="background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px;">
+              <div style="font-family:var(--font-d);font-weight:900;font-size:17px;color:#d0d0d0;margin-bottom:6px;">🪨 STONE</div>
+              <div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.72);line-height:1.55;">Best from the Stonemason, quests and profitable targets. Check your next Keep and building costs before trading it.</div>
+              <div style="font-family:var(--font-d);font-size:12px;color:#8ee6a0;margin-top:8px;">USUALLY SAFEST TO SELL</div>
+            </div>
+            <div style="background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px;">
+              <div style="font-family:var(--font-d);font-weight:900;font-size:17px;color:#f5f5f5;margin-bottom:6px;">🪙 SILVER</div>
+              <div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.72);line-height:1.55;">Improve Housing and Treasury income, trade surplus resources, complete heists, objectives, events and profitable attacks.</div>
+              <div style="font-family:var(--font-d);font-size:12px;color:var(--ee-yellow);margin-top:8px;">SPEND ON PRIORITIES — NOT EVERY NOBLE</div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div>
+              <div onclick="toggleCollapsible(this)" style="background:rgba(255,214,0,.07);border:1px solid rgba(255,214,0,.22);border-radius:9px;padding:13px 15px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                <span style="font-family:var(--font-d);font-weight:800;font-size:15px;color:var(--ee-yellow);">💰 Best Trading Strategy</span>
+                <span class="collapse-chevron" style="font-size:13px;color:var(--ee-yellow);transition:transform .25s;transform:rotate(0deg);">▾</span>
+              </div>
+              <div style="display:none;padding:12px 15px;background:rgba(0,0,0,.27);border:1px solid rgba(255,214,0,.15);border-top:none;border-radius:0 0 9px 9px;">
+                <div class="good-text" style="padding:4px 0;">✅ Usually trade surplus Stone first.</div>
+                <div class="good-text" style="padding:4px 0;">✅ Trade Food only after covering troop training and recovery.</div>
+                <div class="bad-text" style="padding:4px 0;">❌ Do not dump Wood before checking Academy requirements.</div>
+                <div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.68);line-height:1.6;margin-top:8px;">There is no permanent “best county.” Compare the actual payout, trade time, travel distance, safety, Trade Post level and active Merchant Guild bonus. Use the county giving the best final result for your account.</div>
+              </div>
+            </div>
+
+            <div>
+              <div onclick="toggleCollapsible(this)" style="background:rgba(255,214,0,.07);border:1px solid rgba(255,214,0,.22);border-radius:9px;padding:13px 15px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                <span style="font-family:var(--font-d);font-weight:800;font-size:15px;color:var(--ee-yellow);">🤝 Merchant / Agent Priority</span>
+                <span class="collapse-chevron" style="font-size:13px;color:var(--ee-yellow);transition:transform .25s;transform:rotate(0deg);">▾</span>
+              </div>
+              <div style="display:none;padding:12px 15px;background:rgba(0,0,0,.27);border:1px solid rgba(255,214,0,.15);border-top:none;border-radius:0 0 9px 9px;">
+                <div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.72);line-height:1.65;"><strong style="color:var(--ee-yellow);">Level 20:</strong> Useful starter trader.<br><strong style="color:var(--ee-yellow);">Level 30 Agent:</strong> Best practical sub-K21 target for stronger trades and Wandering Merchant access.<br><strong style="color:var(--ee-yellow);">Level 40 Merchant/Agent:</strong> Strong long-term target for better protected-resource and refined-material options.</div>
+                <div style="font-family:var(--font-d);font-size:12px;color:#8ee6a0;margin-top:10px;">PRIORITY: Trade Cost Efficiency → Trade Payout → Trading Speed → Travel Speed</div>
+                <div class="tip-box" style="margin-top:10px;margin-bottom:0;"><strong>Trade Size:</strong> Small while active, Medium for normal play, Large before sleeping. The best trade is the one you finish and restart consistently.</div>
+              </div>
+            </div>
+
+            <div>
+              <div onclick="toggleCollapsible(this)" style="background:rgba(255,214,0,.07);border:1px solid rgba(255,214,0,.22);border-radius:9px;padding:13px 15px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                <span style="font-family:var(--font-d);font-weight:800;font-size:15px;color:var(--ee-yellow);">🧳 Wandering Merchant</span>
+                <span class="collapse-chevron" style="font-size:13px;color:var(--ee-yellow);transition:transform .25s;transform:rotate(0deg);">▾</span>
+              </div>
+              <div style="display:none;padding:12px 15px;background:rgba(0,0,0,.27);border:1px solid rgba(255,214,0,.15);border-top:none;border-radius:0 0 9px 9px;">
+                <div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.72);line-height:1.65;">Use Barter Merits to buy protected Food, Wood, Stone, Silver and later refined materials. Protected resources are ideal for saving toward Keep upgrades, Academy research and troop-tier progression.</div>
+                <div class="warn-box" style="margin-top:10px;">⚠️ Check the relocation timer before starting a long trade. Save merits for the resource currently blocking your progress — do not spend them randomly.</div>
+              </div>
+            </div>
+
+            <div>
+              <div onclick="toggleCollapsible(this)" style="background:rgba(255,214,0,.07);border:1px solid rgba(255,214,0,.22);border-radius:9px;padding:13px 15px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                <span style="font-family:var(--font-d);font-weight:800;font-size:15px;color:var(--ee-yellow);">⛏️ Why a Collier Is Essential</span>
+                <span class="collapse-chevron" style="font-size:13px;color:var(--ee-yellow);transition:transform .25s;transform:rotate(0deg);">▾</span>
+              </div>
+              <div style="display:none;padding:12px 15px;background:rgba(0,0,0,.27);border:1px solid rgba(255,214,0,.15);border-top:none;border-radius:0 0 9px 9px;">
+                <div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.72);line-height:1.65;">Near K20–K21, metals, gems, minerals and refined materials become major bottlenecks. A Collier mines faster, carries more, protects more of the load and unlocks valuable specialized mining access.</div>
+                <div style="font-family:var(--font-d);font-size:13px;color:var(--ee-yellow);margin-top:10px;">MAIN GOAL: ONE COLLIER WITH AUTOMATION IV</div>
+                <div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:6px;">One developed Collier is better than several weak miners. Use Rockbreakers with enough defensive support, and prioritize Mining Rate, Mining Capacity, Load Protection, Travel Speed and Mine Defense.</div>
+              </div>
+            </div>
+
+            <div>
+              <div onclick="toggleCollapsible(this)" style="background:rgba(255,214,0,.07);border:1px solid rgba(255,214,0,.22);border-radius:9px;padding:13px 15px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                <span style="font-family:var(--font-d);font-weight:800;font-size:15px;color:var(--ee-yellow);">📅 Daily Economy Routine</span>
+                <span class="collapse-chevron" style="font-size:13px;color:var(--ee-yellow);transition:transform .25s;transform:rotate(0deg);">▾</span>
+              </div>
+              <div style="display:none;padding:12px 15px;background:rgba(0,0,0,.27);border:1px solid rgba(255,214,0,.15);border-top:none;border-radius:0 0 9px 9px;">
+                <div class="check-group-title" style="margin-top:0;">Every Login</div>
+                <div class="good-text" style="padding:4px 0;">✅ Collect production and restart crops.</div>
+                <div class="good-text" style="padding:4px 0;">✅ Keep research, troop training and construction active.</div>
+                <div class="good-text" style="padding:4px 0;">✅ Start or restart a trade.</div>
+                <div class="good-text" style="padding:4px 0;">✅ Send your Collier to a safe valuable mine.</div>
+                <div class="good-text" style="padding:4px 0;">✅ Scout for the resource currently blocking progress.</div>
+                <div class="good-text" style="padding:4px 0;">✅ Before sleeping, queue long crops, trades, research and mining.</div>
+              </div>
+            </div>
+
+            <div>
+              <div onclick="toggleCollapsible(this)" style="background:rgba(93,186,112,.08);border:1px solid rgba(93,186,112,.25);border-radius:9px;padding:13px 15px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                <span style="font-family:var(--font-d);font-weight:800;font-size:15px;color:#8ee6a0;">📊 Advanced Trade Numbers</span>
+                <span class="collapse-chevron" style="font-size:13px;color:#8ee6a0;transition:transform .25s;transform:rotate(0deg);">▾</span>
+              </div>
+              <div style="display:none;padding:12px 15px;background:rgba(0,0,0,.27);border:1px solid rgba(93,186,112,.17);border-top:none;border-radius:0 0 9px 9px;">
+                <div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.7);line-height:1.65;">Exact Wandering Merchant costs and payouts change with Trade Payout, Trade Cost Efficiency and Trading Speed bonuses. Always trust the final values shown in your game over a static chart.</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;margin-top:10px;">
+                  <div style="background:rgba(255,255,255,.04);border-radius:7px;padding:10px;"><strong style="color:var(--ee-yellow);font-family:var(--font-d);">Small</strong><div style="font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.58);margin-top:4px;">Best for active play and short relocation timers.</div></div>
+                  <div style="background:rgba(255,255,255,.04);border-radius:7px;padding:10px;"><strong style="color:var(--ee-yellow);font-family:var(--font-d);">Medium</strong><div style="font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.58);margin-top:4px;">Best overall balance for most players.</div></div>
+                  <div style="background:rgba(255,255,255,.04);border-radius:7px;padding:10px;"><strong style="color:var(--ee-yellow);font-family:var(--font-d);">Large</strong><div style="font-family:var(--font-b);font-size:12px;color:rgba(255,255,255,.58);margin-top:4px;">Best for long offline periods when time allows.</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;background:rgba(255,214,0,.07);border:1px solid rgba(255,214,0,.22);border-radius:9px;padding:13px 15px;font-family:var(--font-b);font-size:14px;color:rgba(255,255,255,.78);line-height:1.6;"><strong style="color:var(--ee-yellow);">Final Rule:</strong> Production and profitable attacks create surplus. Merchants convert surplus into Silver and Barter Merits. The Wandering Merchant protects your progress. The Collier supplies the materials that carry you through K21 and beyond.</div>
+        </div>
+      </div>
+
       <!-- BUILDING PLANNER -->
       <div style="margin-top:40px;background:linear-gradient(160deg,#001a10,#022,#00140c);border:1px solid rgba(93,186,112,.35);border-radius:16px;overflow:hidden;">
         <div onclick="toggleCollapsible(this)" style="position:relative;padding:18px 22px;cursor:pointer;">
