@@ -12,3 +12,12 @@ Upload/deploy this entire folder to Cloudflare Pages. `index.html` must remain a
 - `assets/js/site-widgets.js` — countdown, tips, PvP element panel
 
 Load order matters. Keep the script tags in `index.html` in their existing order.
+
+## Gen Alpha full-site redesign
+The site now loads `assets/css/gen-alpha-theme.css` after the original stylesheet. This preserves all existing copy, IDs, navigation and JavaScript functionality while applying one coherent neon/glass/game-inspired design system across every view.
+
+## Interactive motion layer
+- `assets/css/interactive-effects.css`
+- `assets/js/interactive-effects.js`
+
+Adds desktop pointer tilt, shimmer sweeps, navigation icon motion, scroll reveals, ambient icon floating, button feedback, subtle footer parallax, and reduced-motion accessibility support.

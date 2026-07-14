@@ -156,3 +156,91 @@ function getTraitIconStyle(traitName, isMythical, iconSize) {
   const oy = -((sheet.offsetY + e.row * sheet.pitchY) * scale);
   return `background-image:url(${sheet.src});background-size:${bgW.toFixed(2)}px ${bgH.toFixed(2)}px;background-position:${ox.toFixed(2)}px ${oy.toFixed(2)}px;width:${iconSize}px;height:${iconSize}px;border-radius:50%;flex-shrink:0;overflow:hidden;`;
 }
+
+// ═══════════════════════════════════════════════════════════
+// ── SITE-WIDE GEN ALPHA ICON REPLACER ──
+// Replaces legacy emoji glyphs created in static HTML or by JavaScript
+// with the same glossy icon family used by the navigation.
+// ═══════════════════════════════════════════════════════════
+(function(){
+  const base = 'assets/images/icons/';
+  const files = {
+    home:'home-castle.png', guide:'guide-book.png', research:'research-scroll.png',
+    nobles:'nobles-crown.png', army:'army-shield.png', battle:'battle-target.png',
+    pvp:'pvp-swords.png', tips:'tips-bulb.png', alliance:'alliance-handshake.png'
+  };
+
+  const groups = {
+    home:['🏠','🏰','🏯','🏗️','🏗','🗼','🚪','⛺'],
+    guide:['📖','📜','📋','📸','🗺️','🗺','📦','📣'],
+    research:['🔬','🧪','⚙️','⚙','📈','🔁','🔓','🔒','⛏️','⛏'],
+    nobles:['👑','🏆','🏅','🏴','💎','💰','💼','⚜️','⚜','🪖'],
+    army:['🛡️','🛡','⚔️','⚔','🗡️','🗡','🏹','🪓','🐴','💣','🔨','💪'],
+    battle:['🎯','💥','🔥','❄️','❄','⚡','💀','☠️','☠','🚨','⛔','🔴','🌀','🧂'],
+    pvp:['🥊','🤺'],
+    tips:['💡','👀','🧠','🌟','✨','☀️','☀','🌑','🌱','🌾','✅','✓','❌','✕','⚠️','⚠'],
+    alliance:['🤝','🕊️','🕊','🍼','🧬']
+  };
+
+  const emojiMap = {};
+  Object.entries(groups).forEach(([key, chars]) => chars.forEach(ch => emojiMap[ch] = key));
+  const tokens = Object.keys(emojiMap).sort((a,b)=>b.length-a.length);
+  const escaped = tokens.map(s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+  const re = new RegExp('(' + escaped.join('|') + ')', 'g');
+
+  window.eeIconMarkup = function(key, className){
+    const file = files[key] || files.tips;
+    return '<img src="'+base+file+'" alt="" aria-hidden="true" class="'+(className||'ee-auto-icon')+'">';
+  };
+
+  function replaceTextNode(node){
+    const text = node.nodeValue;
+    if(!text || !re.test(text)) return;
+    re.lastIndex = 0;
+    const frag = document.createDocumentFragment();
+    let last = 0;
+    text.replace(re, (match, _capture, offset) => {
+      if(offset > last) frag.appendChild(document.createTextNode(text.slice(last, offset)));
+      const key = emojiMap[match] || 'tips';
+      const img = document.createElement('img');
+      img.src = base + files[key];
+      img.alt = '';
+      img.setAttribute('aria-hidden','true');
+      img.className = 'ee-auto-icon';
+      img.dataset.eeIcon = key;
+      frag.appendChild(img);
+      last = offset + match.length;
+      return match;
+    });
+    if(last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+    node.parentNode.replaceChild(frag,node);
+  }
+
+  function scan(root){
+    if(!root || root.nodeType !== 1 && root.nodeType !== 9 && root.nodeType !== 11) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node){
+        const p = node.parentElement;
+        if(!p || p.closest('script,style,textarea,input,select,option,.ee-icon-skip')) return NodeFilter.FILTER_REJECT;
+        if(p.closest('.ee-auto-icon')) return NodeFilter.FILTER_REJECT;
+        return re.test(node.nodeValue||'') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    const nodes=[];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(replaceTextNode);
+  }
+
+  function boot(){
+    scan(document.body);
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(m => m.addedNodes.forEach(n => {
+        if(n.nodeType===3) replaceTextNode(n);
+        else if(n.nodeType===1) scan(n);
+      }));
+    });
+    observer.observe(document.body,{childList:true,subtree:true});
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot,{once:true});
+  else boot();
+})();

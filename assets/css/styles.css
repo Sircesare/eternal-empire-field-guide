@@ -297,3 +297,202 @@ body{font-size:18px;}
 select{color-scheme:dark;}
 select option{background:#180a2e;color:#fff;}
 select option:checked,select option:hover{background:#3a1a5c;}
+
+/* ═══════════════════════════════════════════════════════════════
+   GEN ALPHA HOME HERO
+   Uses the approved hero artwork at full fidelity, with accessible
+   HTML interaction layers and mobile-native CTA buttons.
+═══════════════════════════════════════════════════════════════ */
+.sr-only{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+
+.ee-genalpha-hero{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 14% 55%,rgba(39,232,255,.23),transparent 30%),
+    radial-gradient(circle at 87% 55%,rgba(255,49,179,.28),transparent 32%),
+    #13002f;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.ee-genalpha-artboard{
+  position:relative;
+  width:100%;
+  max-width:1920px;
+  margin:0 auto;
+  line-height:0;
+  background:#13002f;
+}
+
+.ee-genalpha-art{
+  display:block;
+  width:100%;
+  height:auto;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+.ee-hero-hotspot{
+  position:absolute;
+  z-index:4;
+  bottom:5.5%;
+  height:12.5%;
+  border-radius:999px;
+  cursor:pointer;
+  outline:none;
+}
+
+.ee-hero-hotspot--journey{
+  left:27.5%;
+  width:21.2%;
+}
+
+.ee-hero-hotspot--army{
+  left:50.1%;
+  width:23.2%;
+}
+
+.ee-hero-hotspot:hover{
+  background:rgba(255,255,255,.08);
+  box-shadow:0 0 34px rgba(255,255,255,.35);
+}
+
+.ee-hero-hotspot:focus-visible{
+  box-shadow:0 0 0 4px #fff,0 0 0 8px #ff3ed2,0 0 35px #28e8ff;
+}
+
+.ee-genalpha-mobile-actions{
+  display:none;
+}
+
+.ee-genalpha-scroll-hint{
+  position:absolute;
+  z-index:5;
+  left:50%;
+  bottom:1.2%;
+  transform:translateX(-50%);
+  font-family:var(--font-a);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.68);
+  text-shadow:0 2px 12px rgba(0,0,0,.9);
+  white-space:nowrap;
+  animation:eeGenAlphaBob 1.7s ease-in-out infinite;
+}
+
+@keyframes eeGenAlphaBob{
+  0%,100%{transform:translate(-50%,0)}
+  50%{transform:translate(-50%,6px)}
+}
+
+@media(max-width:760px){
+  .ee-genalpha-hero{
+    padding-bottom:18px;
+  }
+
+  .ee-genalpha-artboard{
+    width:150%;
+    margin-left:-25%;
+    overflow:hidden;
+  }
+
+  .ee-genalpha-art{
+    width:100%;
+  }
+
+  .ee-hero-hotspot{
+    display:none;
+  }
+
+  .ee-genalpha-mobile-actions{
+    position:relative;
+    z-index:6;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    width:min(92%,480px);
+    margin:-4px auto 4px;
+    padding:0 2px;
+  }
+
+  .ee-genalpha-button{
+    min-height:58px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:10px 18px;
+    border:3px solid #fff;
+    border-radius:999px;
+    color:#15002d;
+    text-decoration:none;
+    text-align:center;
+    font-family:var(--font-d);
+    font-size:16px;
+    font-weight:900;
+    line-height:1;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    box-shadow:0 6px 0 #4d147e,0 0 0 4px rgba(255,255,255,.12),0 0 25px rgba(255,62,210,.45);
+  }
+
+  .ee-genalpha-button span:first-child{
+    font-size:23px;
+  }
+
+  .ee-genalpha-button small{
+    display:block;
+    margin-bottom:3px;
+    font-size:10px;
+    letter-spacing:.06em;
+  }
+
+  .ee-genalpha-button--yellow{
+    background:linear-gradient(#ffe95c,#ffad00);
+  }
+
+  .ee-genalpha-button--blue{
+    background:linear-gradient(#6df7ff,#25afff);
+  }
+
+  .ee-genalpha-button:active{
+    transform:translateY(4px);
+    box-shadow:0 2px 0 #4d147e,0 0 0 4px rgba(255,255,255,.12);
+  }
+
+  .ee-genalpha-scroll-hint{
+    position:static;
+    transform:none;
+    display:block;
+    width:100%;
+    margin-top:14px;
+    text-align:center;
+    animation:none;
+    color:rgba(255,255,255,.52);
+  }
+}
+
+@media(max-width:430px){
+  .ee-genalpha-artboard{
+    width:174%;
+    margin-left:-37%;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .ee-genalpha-scroll-hint{animation:none;}
+}

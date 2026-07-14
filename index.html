@@ -37,8 +37,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eternal Empire — Field Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/gen-alpha-theme.css">
+<link rel="stylesheet" href="assets/css/interactive-effects.css">
 </head>
 <body>
 
@@ -55,68 +57,91 @@
     <img src="assets/images/EternalEmpireflag.png" alt="Menu" style="width:22px;height:32px;object-fit:contain;">
   </button>
   <div class="top-nav-links" id="top-nav-links">
-    <a href="#" onclick="showView('home');closeHamburger();return false;">Home</a>
-    <a href="#" onclick="showView('beginners');closeHamburger();return false;">Beginners</a>
-    <a href="#" onclick="showView('research');closeHamburger();return false;">Research</a>
-    <a href="#" onclick="showView('nobles');closeHamburger();return false;">Nobles</a>
-    <a href="#" onclick="showView('simulator');closeHamburger();return false;">Army Sim</a>
-    <a href="#" onclick="showView('pvp');closeHamburger();return false;">PvP</a>
-    <a href="#" onclick="showView('tips');closeHamburger();return false;">Tips</a>
-    <a href="#" onclick="showView('alliance');closeHamburger();return false;">Alliance</a>
+    <a href="#" onclick="showView('home');closeHamburger();return false;"><span class="top-nav-icon"><img src="assets/images/icons/home-castle.png" alt="" aria-hidden="true" class="top-nav-icon-img"></span><span>Home</span></a>
+    <a href="#" onclick="showView('beginners');closeHamburger();return false;"><span class="top-nav-icon"><img src="assets/images/icons/guide-book.png" alt="" aria-hidden="true" class="top-nav-icon-img"></span><span>Beginners</span></a>
+    <a href="#" onclick="showView('research');closeHamburger();return false;"><span class="top-nav-icon"><img src="assets/images/icons/research-scroll.png" alt="" aria-hidden="true" class="top-nav-icon-img"></span><span>Research</span></a>
+    <a href="#" onclick="showView('nobles');closeHamburger();return false;"><span class="top-nav-icon"><img src="assets/images/icons/nobles-crown.png" alt="" aria-hidden="true" class="top-nav-icon-img"></span><span>Nobles</span></a>
+    <a href="#" onclick="showView('simulator');closeHamburger();return false;"><span class="top-nav-icon"><img src="assets/images/icons/army-shield.png" alt="" aria-hidden="true" class="top-nav-icon-img"></span><span>Army Sim</span></a>
+    <a href="#" onclick="showView('pvp');closeHamburger();return false;"><span class="top-nav-icon"><img src="assets/images/icons/pvp-swords.png" alt="" aria-hidden="true" class="top-nav-icon-img"></span><span>PvP</span></a>
+    <a href="#" onclick="showView('tips');closeHamburger();return false;"><span class="top-nav-icon"><img src="assets/images/icons/tips-bulb.png" alt="" aria-hidden="true" class="top-nav-icon-img"></span><span>Tips</span></a>
+    <a href="#" onclick="showView('alliance');closeHamburger();return false;"><span class="top-nav-icon"><img src="assets/images/icons/alliance-handshake.png" alt="" aria-hidden="true" class="top-nav-icon-img"></span><span>Alliance</span></a>
   </div>
 </nav>
 
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
   <a class="bnav-item active" id="bnav-home" onclick="showView('home');return false;" href="#">
-    <span class="bnav-icon">🏰</span>Home
+    <span class="bnav-icon"><img src="assets/images/icons/home-castle.png" alt="" aria-hidden="true" class="bnav-icon-img"></span>Home
   </a>
   <a class="bnav-item" id="bnav-beginners" onclick="showView('beginners');return false;" href="#">
-    <span class="bnav-icon">📖</span>Guide
+    <span class="bnav-icon"><img src="assets/images/icons/guide-book.png" alt="" aria-hidden="true" class="bnav-icon-img"></span>Guide
   </a>
   <a class="bnav-item" id="bnav-research" onclick="showView('research');return false;" href="#">
-    <span class="bnav-icon">🔬</span>Research
+    <span class="bnav-icon"><img src="assets/images/icons/research-scroll.png" alt="" aria-hidden="true" class="bnav-icon-img"></span>Research
   </a>
   <a class="bnav-item" id="bnav-nobles" onclick="showView('nobles');return false;" href="#">
-    <span class="bnav-icon">👑</span>Nobles
+    <span class="bnav-icon"><img src="assets/images/icons/nobles-crown.png" alt="" aria-hidden="true" class="bnav-icon-img"></span>Nobles
   </a>
   <a class="bnav-item" id="bnav-simulator" onclick="showView('simulator');return false;" href="#">
-    <span class="bnav-icon">⚔️</span>Army Sim
+    <span class="bnav-icon"><img src="assets/images/icons/army-shield.png" alt="" aria-hidden="true" class="bnav-icon-img"></span>Army Sim
   </a>
   <a class="bnav-item" id="bnav-battlesim" onclick="showView('battlesim');return false;" href="#">
-    <span class="bnav-icon">🎯</span>Battle Sim
+    <span class="bnav-icon"><img src="assets/images/icons/battle-target.png" alt="" aria-hidden="true" class="bnav-icon-img"></span>Battle Sim
   </a>
   <a class="bnav-item" id="bnav-pvp" onclick="showView('pvp');return false;" href="#">
-    <span class="bnav-icon">🗡️</span>PvP
+    <span class="bnav-icon"><img src="assets/images/icons/pvp-swords.png" alt="" aria-hidden="true" class="bnav-icon-img"></span>PvP
   </a>
   <a class="bnav-item" id="bnav-tips" onclick="showView('tips');return false;" href="#">
-    <span class="bnav-icon">💡</span>Tips
+    <span class="bnav-icon"><img src="assets/images/icons/tips-bulb.png" alt="" aria-hidden="true" class="bnav-icon-img"></span>Tips
   </a>
   <a class="bnav-item" id="bnav-alliance" onclick="showView('alliance');return false;" href="#">
-    <span class="bnav-icon">🛡️</span>Alliance
+    <span class="bnav-icon"><img src="assets/images/icons/alliance-handshake.png" alt="" aria-hidden="true" class="bnav-icon-img"></span>Alliance
   </a>
 </nav>
 
 <!-- ═══════════════ VIEW: HOME ═══════════════ -->
 <div class="view active" id="view-home">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">Eternal Empire · Official Field Guide</div>
-      <div class="hero-flag-wrap">
-        <img src="assets/images/EternalEmpireflag.png" alt="Eternal Empire Flag" style="width:110px;height:160px;object-fit:contain;filter:drop-shadow(0 6px 28px rgba(217,0,38,.5)) drop-shadow(0 0 50px rgba(255,214,0,.12));">
-      </div>
-      <h1 class="hero-title">Eternal<br>Empire</h1>
-      <div class="hero-tagline">Kingdom Maker · Field Guide</div>
-      <p class="hero-sub">Master nobles, army composition, breeding programs, and shard domination — from Keep 1 to K40.</p>
-      <div class="hero-cta">
-        <a class="btn-primary" href="#" onclick="showView('beginners');return false;">Start Your Journey</a>
-        <a class="btn-ghost" href="#" onclick="showView('simulator');return false;">Already Established? Analyze Your Army</a>
-      </div>
+  <!-- GEN ALPHA HERO -->
+  <section class="ee-genalpha-hero" aria-labelledby="ee-hero-title">
+    <h1 id="ee-hero-title" class="sr-only">Eternal Empire — Kingdom Maker Field Guide</h1>
+
+    <div class="ee-genalpha-artboard">
+      <img
+        class="ee-genalpha-art"
+        src="assets/images/eternal-empire-gen-alpha-hero.png"
+        alt="Eternal Empire Kingdom Maker Field Guide with a knight, fantasy castle, empire crest, and neon gaming interface"
+        width="1672"
+        height="941"
+        fetchpriority="high"
+      >
+
+      <a
+        class="ee-hero-hotspot ee-hero-hotspot--journey"
+        href="#"
+        onclick="showView('beginners');return false;"
+        aria-label="Start your journey with the beginner guide"
+      ></a>
+      <a
+        class="ee-hero-hotspot ee-hero-hotspot--army"
+        href="#"
+        onclick="showView('simulator');return false;"
+        aria-label="Analyze your army in the army simulator"
+      ></a>
     </div>
-    <div class="scroll-hint">Tap a section below ↓</div>
+
+    <div class="ee-genalpha-mobile-actions" aria-label="Hero actions">
+      <a class="ee-genalpha-button ee-genalpha-button--yellow" href="#" onclick="showView('beginners');return false;">
+        <span aria-hidden="true" class="hero-action-icon"><img src="assets/images/icons/guide-book.png" alt="" aria-hidden="true" class="hero-action-icon-img"></span>
+        <span>Start Your Journey</span>
+      </a>
+      <a class="ee-genalpha-button ee-genalpha-button--blue" href="#" onclick="showView('simulator');return false;">
+        <span aria-hidden="true" class="hero-action-icon"><img src="assets/images/icons/army-shield.png" alt="" aria-hidden="true" class="hero-action-icon-img"></span>
+        <span><small>Already established?</small>Analyze Your Army</span>
+      </a>
+    </div>
+
+    <div class="ee-genalpha-scroll-hint">Tap a section below <span aria-hidden="true">↓</span></div>
   </section>
 
   <!-- STATS -->
@@ -132,11 +157,11 @@
   
 <!-- QUICK JUMP STRIP -->
 <div style="background:#0d0020;border-top:1px solid var(--ee-border);border-bottom:1px solid var(--ee-border);padding:14px 16px;display:flex;gap:8px;overflow-x:auto;justify-content:center;flex-wrap:wrap;">
-  <button onclick="showView('research')" style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.25);border-radius:8px;padding:10px 16px;cursor:pointer;font-family:var(--font-d);font-weight:700;font-size:13px;color:var(--ee-yellow);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='rgba(255,214,0,.16)'" onmouseout="this.style.background='rgba(255,214,0,.08)'">🔬 Research Tree</button>
-  <button onclick="showView('nobles','nobles-breeding')" style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.25);border-radius:8px;padding:10px 16px;cursor:pointer;font-family:var(--font-d);font-weight:700;font-size:13px;color:var(--ee-yellow);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='rgba(255,214,0,.16)'" onmouseout="this.style.background='rgba(255,214,0,.08)'">🧬 Breeding Guide</button>
-  <button onclick="showView('pvp','pvp-elements')" style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.25);border-radius:8px;padding:10px 16px;cursor:pointer;font-family:var(--font-d);font-weight:700;font-size:13px;color:var(--ee-yellow);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='rgba(255,214,0,.16)'" onmouseout="this.style.background='rgba(255,214,0,.08)'">⚡ Elements & Equipment</button>
-  <button onclick="showView('pvp','pvp-attack')" style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.25);border-radius:8px;padding:10px 16px;cursor:pointer;font-family:var(--font-d);font-weight:700;font-size:13px;color:var(--ee-yellow);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='rgba(255,214,0,.16)'" onmouseout="this.style.background='rgba(255,214,0,.08)'">💥 Attack Strategy</button>
-  <button onclick="showView('simulator')" style="background:rgba(217,0,38,.12);border:1px solid rgba(217,0,38,.4);border-radius:8px;padding:10px 16px;cursor:pointer;font-family:var(--font-d);font-weight:700;font-size:13px;color:#ff8080;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='rgba(217,0,38,.22)'" onmouseout="this.style.background='rgba(217,0,38,.12)'">⚔️ Army Simulator</button>
+  <button onclick="showView('research')" style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.25);border-radius:8px;padding:10px 16px;cursor:pointer;font-family:var(--font-d);font-weight:700;font-size:13px;color:var(--ee-yellow);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='rgba(255,214,0,.16)'" onmouseout="this.style.background='rgba(255,214,0,.08)'"><img src="assets/images/icons/research-scroll.png" alt="" aria-hidden="true" class="quick-link-icon"><span>Research Tree</span></button>
+  <button onclick="showView('nobles','nobles-breeding')" style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.25);border-radius:8px;padding:10px 16px;cursor:pointer;font-family:var(--font-d);font-weight:700;font-size:13px;color:var(--ee-yellow);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='rgba(255,214,0,.16)'" onmouseout="this.style.background='rgba(255,214,0,.08)'"><img src="assets/images/icons/guide-book.png" alt="" aria-hidden="true" class="quick-link-icon"><span>Breeding Guide</span></button>
+  <button onclick="showView('pvp','pvp-elements')" style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.25);border-radius:8px;padding:10px 16px;cursor:pointer;font-family:var(--font-d);font-weight:700;font-size:13px;color:var(--ee-yellow);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='rgba(255,214,0,.16)'" onmouseout="this.style.background='rgba(255,214,0,.08)'"><img src="assets/images/icons/pvp-swords.png" alt="" aria-hidden="true" class="quick-link-icon"><span>Elements & Equipment</span></button>
+  <button onclick="showView('pvp','pvp-attack')" style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.25);border-radius:8px;padding:10px 16px;cursor:pointer;font-family:var(--font-d);font-weight:700;font-size:13px;color:var(--ee-yellow);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='rgba(255,214,0,.16)'" onmouseout="this.style.background='rgba(255,214,0,.08)'"><img src="assets/images/icons/battle-target.png" alt="" aria-hidden="true" class="quick-link-icon"><span>Attack Strategy</span></button>
+  <button onclick="showView('simulator')" style="background:rgba(217,0,38,.12);border:1px solid rgba(217,0,38,.4);border-radius:8px;padding:10px 16px;cursor:pointer;font-family:var(--font-d);font-weight:700;font-size:13px;color:#ff8080;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='rgba(217,0,38,.22)'" onmouseout="this.style.background='rgba(217,0,38,.12)'"><img src="assets/images/icons/army-shield.png" alt="" aria-hidden="true" class="quick-link-icon"><span>Army Simulator</span></button>
 </div>
   <!-- SHARDS CONQUERED -->
   <section style="background:linear-gradient(180deg,#0d0018 0%,#120820 50%,#0d0018 100%);padding:80px 20px;border-top:2px solid rgba(138,43,226,.4);border-bottom:2px solid rgba(138,43,226,.4);position:relative;overflow:hidden;">
@@ -209,74 +234,74 @@
     <div class="cards-grid">
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
-          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(140deg,#07000f,#1e0045,#6b0020,#d90026);"></div><div class="front-icon">🏠</div><div class="front-tag">Start Here</div><div class="front-title">Home — Eternal Empire HQ</div><div class="front-hint">Tap to reveal</div></div>
-          <div class="flip-back"><div class="back-header"><span style="font-size:16px">🏠</span><span class="back-header-title">Eternal Empire HQ</span></div><div class="back-body"><span class="highlight">Your Alliance Hub</span><ul><li>Official Field Guide for Eternal Empire members</li><li>Alliance led by Aquila — join before Keep 6</li><li>Discord is required — no exceptions</li><li>Track shards conquered and active theaters</li><li>Use the cards below to navigate the guide</li><li>Every noble has a purpose — every battle has a plan</li></ul></div><div class="back-cta"><a href="#" onclick="showView('home');return false;">Back to Home →</a></div></div>
+          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(140deg,#07000f,#1e0045,#6b0020,#d90026);"></div><div class="front-icon"><img src="assets/images/icons/home-castle.png" alt="" aria-hidden="true" class="front-icon-img"></div><div class="front-tag">Start Here</div><div class="front-title">Home — Eternal Empire HQ</div><div class="front-hint">Tap to reveal</div></div>
+          <div class="flip-back"><div class="back-header"><span class="back-header-icon"><img src="assets/images/icons/home-castle.png" alt="" aria-hidden="true" class="back-header-icon-img"></span><span class="back-header-title">Eternal Empire HQ</span></div><div class="back-body"><span class="highlight">Your Alliance Hub</span><ul><li>Official Field Guide for Eternal Empire members</li><li>Join before Keep 6 for protection</li><li>Discord is required — no exceptions</li><li>Track shards conquered and active theaters</li><li>Use the cards below to navigate the guide</li><li>Every noble has a purpose — every battle has a plan</li></ul></div><div class="back-cta"><a href="#" onclick="showView('home');return false;">Back to Home →</a></div></div>
         </div>
       </div>
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
-          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#1a0038,#7b0066,#ff3b30);"></div><div class="front-icon">🏰</div><div class="front-tag">New Players</div><div class="front-title">Guide — Beginner's Survival</div><div class="front-hint">Tap to reveal</div></div>
-          <div class="flip-back"><div class="back-header"><span style="font-size:16px">🏰</span><span class="back-header-title">Beginner's Guide</span></div><div class="back-body"><span class="highlight">Critical Warning</span><ul><li>Stay below Keep 10 — your bubble protects you</li><li>At Keep 10, a 2-day shield countdown begins</li><li>Join Eternal Empire before Keep 6 for protection</li><li>Build resource tiles: Farm, Lumber, Quarry</li><li>Train troops daily without stopping</li><li>Never skip your daily missions</li></ul></div><div class="back-cta"><a href="#" onclick="showView('beginners');return false;">Full Beginner Guide →</a></div></div>
+          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#1a0038,#7b0066,#ff3b30);"></div><div class="front-icon"><img src="assets/images/icons/guide-book.png" alt="" aria-hidden="true" class="front-icon-img"></div><div class="front-tag">New Players</div><div class="front-title">Guide — Beginner's Survival</div><div class="front-hint">Tap to reveal</div></div>
+          <div class="flip-back"><div class="back-header"><span class="back-header-icon"><img src="assets/images/icons/guide-book.png" alt="" aria-hidden="true" class="back-header-icon-img"></span><span class="back-header-title">Beginner's Guide</span></div><div class="back-body"><span class="highlight">Critical Warning</span><ul><li>Stay below Keep 10 — your bubble protects you</li><li>At Keep 10, a 2-day shield countdown begins</li><li>Join Eternal Empire before Keep 6 for protection</li><li>Build resource tiles: Farm, Lumber, Quarry</li><li>Train troops daily without stopping</li><li>Never skip your daily missions</li></ul></div><div class="back-cta"><a href="#" onclick="showView('beginners');return false;">Full Beginner Guide →</a></div></div>
         </div>
       </div>
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
-          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#003d80,#0066cc,#00a8ff);"></div><div class="front-icon">👑</div><div class="front-tag">Core Mechanic</div><div class="front-title">Nobles — Roles & Traits</div><div class="front-hint">Tap to reveal</div></div>
-          <div class="flip-back"><div class="back-header"><span style="font-size:16px">👑</span><span class="back-header-title">Noble Roles</span></div><div class="back-body"><span class="highlight">3 Combat Lines</span><ul><li>⚔️ Enforcer: Captain → Marshal → Justicar</li><li>🛡️ Guardian: Knight → Paladin → Sentinel</li><li>🪓 Harbinger: Subjugator → Conqueror → Vanquisher</li><li>Enforcers use Swordsmen + Archers</li><li>Guardians use Cavalry + Crossbows</li><li>Harbingers use Axemen + Catapults</li></ul></div><div class="back-cta"><a href="#" onclick="showView('nobles');return false;">Noble Roles Guide →</a></div></div>
+          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#003d80,#0066cc,#00a8ff);"></div><div class="front-icon"><img src="assets/images/icons/nobles-crown.png" alt="" aria-hidden="true" class="front-icon-img"></div><div class="front-tag">Core Mechanic</div><div class="front-title">Nobles — Roles & Traits</div><div class="front-hint">Tap to reveal</div></div>
+          <div class="flip-back"><div class="back-header"><span class="back-header-icon"><img src="assets/images/icons/nobles-crown.png" alt="" aria-hidden="true" class="back-header-icon-img"></span><span class="back-header-title">Noble Roles</span></div><div class="back-body"><span class="highlight">3 Combat Lines</span><ul><li>⚔️ Enforcer: Captain → Marshal → Justicar</li><li>🛡️ Guardian: Knight → Paladin → Sentinel</li><li>🪓 Harbinger: Subjugator → Conqueror → Vanquisher</li><li>Enforcers use Swordsmen + Archers</li><li>Guardians use Cavalry + Crossbows</li><li>Harbingers use Axemen + Catapults</li></ul></div><div class="back-cta"><a href="#" onclick="showView('nobles');return false;">Noble Roles Guide →</a></div></div>
         </div>
       </div>
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
-          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#7b2d00,#c45000,#ff7b00);"></div><div class="front-icon">⚔️</div><div class="front-tag">Battle Strategy</div><div class="front-title">Army Sim — Composition</div><div class="front-hint">Tap to reveal</div></div>
-          <div class="flip-back"><div class="back-header"><span style="font-size:16px">⚔️</span><span class="back-header-title">Army Builds</span></div><div class="back-body"><span class="highlight">Core Doctrine</span><ul><li>Destroy enemy armies BEFORE attacking walls</li><li>Never waste trebuchets fighting troops</li><li>Captains clear — Marshals rally — Paladins hold</li><li>PvE: Heavy infantry + siege for forts</li><li>PvP: Counter the enemy's noble formation first</li><li>Forts are the best XP source for nobles</li></ul></div><div class="back-cta"><a href="#" onclick="showView('simulator');return false;">Army Simulator →</a></div></div>
+          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#7b2d00,#c45000,#ff7b00);"></div><div class="front-icon"><img src="assets/images/icons/army-shield.png" alt="" aria-hidden="true" class="front-icon-img"></div><div class="front-tag">Battle Strategy</div><div class="front-title">Army Sim — Composition</div><div class="front-hint">Tap to reveal</div></div>
+          <div class="flip-back"><div class="back-header"><span class="back-header-icon"><img src="assets/images/icons/army-shield.png" alt="" aria-hidden="true" class="back-header-icon-img"></span><span class="back-header-title">Army Builds</span></div><div class="back-body"><span class="highlight">Core Doctrine</span><ul><li>Destroy enemy armies BEFORE attacking walls</li><li>Never waste trebuchets fighting troops</li><li>Captains clear — Marshals rally — Paladins hold</li><li>PvE: Heavy infantry + siege for forts</li><li>PvP: Counter the enemy's noble formation first</li><li>Forts are the best XP source for nobles</li></ul></div><div class="back-cta"><a href="#" onclick="showView('simulator');return false;">Army Simulator →</a></div></div>
         </div>
       </div>
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
-          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#1a0010,#6b0020,#d90026);"></div><div class="front-icon">🛡️</div><div class="front-tag">Eternal Empire Doctrine</div><div class="front-title">Alliance — Warfare Rules</div><div class="front-hint">Tap to reveal</div></div>
-          <div class="flip-back"><div class="back-header"><span style="font-size:16px">🛡️</span><span class="back-header-title">Alliance War Rules</span></div><div class="back-body"><span class="highlight">Eternal Empire Code</span><ul><li>Focus fire on single targets — no splitting</li><li>Reinforce allies under attack immediately</li><li>Coordinate troop count with leadership before big wars</li><li>Rally timing coordinated with leaders only</li><li>Communicate in alliance chat — always</li><li>Eternal Empire does NOT raid for resources</li></ul></div><div class="back-cta"><a href="#" onclick="showView('alliance');return false;">Alliance Guide →</a></div></div>
+          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#1a0010,#6b0020,#d90026);"></div><div class="front-icon"><img src="assets/images/icons/alliance-handshake.png" alt="" aria-hidden="true" class="front-icon-img"></div><div class="front-tag">Eternal Empire Doctrine</div><div class="front-title">Alliance — Warfare Rules</div><div class="front-hint">Tap to reveal</div></div>
+          <div class="flip-back"><div class="back-header"><span class="back-header-icon"><img src="assets/images/icons/alliance-handshake.png" alt="" aria-hidden="true" class="back-header-icon-img"></span><span class="back-header-title">Alliance War Rules</span></div><div class="back-body"><span class="highlight">Eternal Empire Code</span><ul><li>Focus fire on single targets — no splitting</li><li>Reinforce allies under attack immediately</li><li>Coordinate troop count with leadership before big wars</li><li>Rally timing coordinated with leaders only</li><li>Communicate in alliance chat — always</li><li>Eternal Empire does NOT raid for resources</li></ul></div><div class="back-cta"><a href="#" onclick="showView('alliance');return false;">Alliance Guide →</a></div></div>
         </div>
       </div>
 
       <!-- RESEARCH card -->
       <div class="flip-card-wrap" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
-          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#003320,#006644,#00cc77);"></div><div class="front-icon">🔬</div><div class="front-tag">Progression</div><div class="front-title">Research — Decision Tree</div><div class="front-hint">Tap to reveal</div></div>
-          <div class="flip-back"><div class="back-header"><span style="font-size:16px">🔬</span><span class="back-header-title">Research Priority</span></div><div class="back-body"><span class="highlight">Research Order</span><ul><li>City research first — always, no exceptions</li><li>Noble research second — unlocks roles & slots</li><li>Military research third — troops & combat</li><li>Key nodes: Suspiciously Good PvP Damage</li><li>Suspiciously Good Offspring at K18</li><li>Use the interactive tree to plan your path</li></ul></div><div class="back-cta"><a href="#" onclick="showView('research');return false;">Research Tree →</a></div></div>
+          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#003320,#006644,#00cc77);"></div><div class="front-icon"><img src="assets/images/icons/research-scroll.png" alt="" aria-hidden="true" class="front-icon-img"></div><div class="front-tag">Progression</div><div class="front-title">Research — Decision Tree</div><div class="front-hint">Tap to reveal</div></div>
+          <div class="flip-back"><div class="back-header"><span class="back-header-icon"><img src="assets/images/icons/research-scroll.png" alt="" aria-hidden="true" class="back-header-icon-img"></span><span class="back-header-title">Research Priority</span></div><div class="back-body"><span class="highlight">Research Order</span><ul><li>City research first — always, no exceptions</li><li>Noble research second — unlocks roles & slots</li><li>Military research third — troops & combat</li><li>Key nodes: Suspiciously Good PvP Damage</li><li>Suspiciously Good Offspring at K18</li><li>Use the interactive tree to plan your path</li></ul></div><div class="back-cta"><a href="#" onclick="showView('research');return false;">Research Tree →</a></div></div>
         </div>
       </div>
 
       <!-- BATTLE SIM card -->
       <div class="flip-card-wrap" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
-          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#1a0030,#4a0080,#9000ff);"></div><div class="front-icon">🎯</div><div class="front-tag">Combat Tools</div><div class="front-title">Battle Sim — Matchup Tool</div><div class="front-hint">Tap to reveal</div></div>
-          <div class="flip-back"><div class="back-header"><span style="font-size:16px">🎯</span><span class="back-header-title">Battle Simulator</span></div><div class="back-body"><span class="highlight">AI-Powered</span><ul><li>Upload your noble's screenshot to analyze traits</li><li>Get PvE, PvP Attack & Defense army builds</li><li>Run matchup math against any enemy comp</li><li>Pairing synergy rewards Cav+XBow, Sword+Arch</li><li>Trait bonuses from your noble auto-apply</li><li>Correct misread tiers with the tier dropdown</li></ul></div><div class="back-cta"><a href="#" onclick="showView('battlesim');return false;">Open Battle Simulator →</a></div></div>
+          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#1a0030,#4a0080,#9000ff);"></div><div class="front-icon"><img src="assets/images/icons/battle-target.png" alt="" aria-hidden="true" class="front-icon-img"></div><div class="front-tag">Combat Tools</div><div class="front-title">Battle Sim — Matchup Tool</div><div class="front-hint">Tap to reveal</div></div>
+          <div class="flip-back"><div class="back-header"><span class="back-header-icon"><img src="assets/images/icons/battle-target.png" alt="" aria-hidden="true" class="back-header-icon-img"></span><span class="back-header-title">Battle Simulator</span></div><div class="back-body"><span class="highlight">AI-Powered</span><ul><li>Upload your noble's screenshot to analyze traits</li><li>Get PvE, PvP Attack & Defense army builds</li><li>Run matchup math against any enemy comp</li><li>Pairing synergy rewards Cav+XBow, Sword+Arch</li><li>Trait bonuses from your noble auto-apply</li><li>Correct misread tiers with the tier dropdown</li></ul></div><div class="back-cta"><a href="#" onclick="showView('battlesim');return false;">Open Battle Simulator →</a></div></div>
         </div>
       </div>
 
       <!-- PvP card -->
       <div class="flip-card-wrap" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
-          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#3a0000,#990000,#ff2200);"></div><div class="front-icon">⚡</div><div class="front-tag">PvP Combat</div><div class="front-title">PvP — Combat Guide</div><div class="front-hint">Tap to reveal</div></div>
-          <div class="flip-back"><div class="back-header"><span style="font-size:16px">⚡</span><span class="back-header-title">PvP Doctrine</span></div><div class="back-body"><span class="highlight">Attack & Defense</span><ul><li>Lightning beats Frost · Frost beats Fire · Fire beats Physical</li><li>Cavalry counters Swordsmen — Axemen counter Cavalry</li><li>Catapults are the primary Cavalry counter</li><li>Swordsmen+Archers pair — counter Axemen</li><li>Never rally without checking enemy noble line</li><li>Champions add battalion slots — always fill them</li></ul></div><div class="back-cta"><a href="#" onclick="showView('pvp');return false;">Full PvP Guide →</a></div></div>
+          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#3a0000,#990000,#ff2200);"></div><div class="front-icon"><img src="assets/images/icons/pvp-swords.png" alt="" aria-hidden="true" class="front-icon-img"></div><div class="front-tag">PvP Combat</div><div class="front-title">PvP — Combat Guide</div><div class="front-hint">Tap to reveal</div></div>
+          <div class="flip-back"><div class="back-header"><span class="back-header-icon"><img src="assets/images/icons/pvp-swords.png" alt="" aria-hidden="true" class="back-header-icon-img"></span><span class="back-header-title">PvP Doctrine</span></div><div class="back-body"><span class="highlight">Attack & Defense</span><ul><li>Lightning beats Frost · Frost beats Fire · Fire beats Physical</li><li>Cavalry counters Swordsmen — Axemen counter Cavalry</li><li>Catapults are the primary Cavalry counter</li><li>Swordsmen+Archers pair — counter Axemen</li><li>Never rally without checking enemy noble line</li><li>Champions add battalion slots — always fill them</li></ul></div><div class="back-cta"><a href="#" onclick="showView('pvp');return false;">Full PvP Guide →</a></div></div>
         </div>
       </div>
 
       <!-- TIPS card -->
       <div class="flip-card-wrap" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
-          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#1a1a00,#664400,#ffaa00);"></div><div class="front-icon">💡</div><div class="front-tag">Advanced Play</div><div class="front-title">Tips — Fort XP & Strategy</div><div class="front-hint">Tap to reveal</div></div>
-          <div class="flip-back"><div class="back-header"><span style="font-size:16px">💡</span><span class="back-header-title">Pro Tips</span></div><div class="back-body"><span class="highlight">Level Faster</span><ul><li>Forts are the best noble XP source in the game</li><li>Match fort level to your noble's current level</li><li>Don't skip fort tiers — under-leveled forts waste time</li><li>Keep 10 shield: 2-day countdown, not instant loss</li><li>Economy must be producing reliably before pushing military</li><li>Join alliance events every time — they compound fast</li></ul></div><div class="back-cta"><a href="#" onclick="showView('tips');return false;">Tips & Fort Guide →</a></div></div>
+          <div class="flip-front"><div class="front-bg" style="background:linear-gradient(135deg,#1a1a00,#664400,#ffaa00);"></div><div class="front-icon"><img src="assets/images/icons/tips-bulb.png" alt="" aria-hidden="true" class="front-icon-img"></div><div class="front-tag">Advanced Play</div><div class="front-title">Tips — Fort XP & Strategy</div><div class="front-hint">Tap to reveal</div></div>
+          <div class="flip-back"><div class="back-header"><span class="back-header-icon"><img src="assets/images/icons/tips-bulb.png" alt="" aria-hidden="true" class="back-header-icon-img"></span><span class="back-header-title">Pro Tips</span></div><div class="back-body"><span class="highlight">Level Faster</span><ul><li>Forts are the best noble XP source in the game</li><li>Match fort level to your noble's current level</li><li>Don't skip fort tiers — under-leveled forts waste time</li><li>Keep 10 shield: 2-day countdown, not instant loss</li><li>Economy must be producing reliably before pushing military</li><li>Join alliance events every time — they compound fast</li></ul></div><div class="back-cta"><a href="#" onclick="showView('tips');return false;">Tips & Fort Guide →</a></div></div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <footer>
-    <img src="assets/images/EternalEmpireflag.png" alt="Eternal Empire Flag" style="display:block;margin:0 auto 14px;width:36px;height:52px;object-fit:contain;">
-    <div class="footer-logo">Eternal Empire</div>
-    <p>Kingdom Maker Field Guide · Aquila's Alliance · Every Noble Has a Purpose · Every Battle Has a Plan</p>
+  <footer class="ee-home-footer-banner" aria-label="Eternal Empire footer">
+    <div class="ee-home-footer-banner-inner">
+      <img src="assets/images/eternal-empire-footer-banner.png" alt="Eternal Empire footer banner reading Kingdom Maker Field Guide, Every Noble Has a Purpose, and Every Battle Has a Plan">
+    </div>
   </footer>
 </div>
 
@@ -383,7 +408,7 @@
           <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"></div><div class="check-item-text">Complete the tutorial fully — don't skip any steps</div></div>
           <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"></div><div class="check-item-text">Build your first Farm, Lumber Mill, and Quarry</div></div>
           <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"></div><div class="check-item-text">Start troop training — never let your barracks sit idle</div></div>
-          <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"></div><div class="check-item-text">Join  before Keep 6 — contact Aquila</div></div>
+          <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"></div><div class="check-item-text">Join before Keep 6 — contact leadership</div></div>
           <div class="tip-box"><strong>⚠ Alliance Warning:</strong> Do NOT join any random alliance that invites you. Wait for  only. A bad alliance can get you farmed by enemies with no protection.</div>
           <div class="check-group-title">Troop Unlock Milestones</div>
           <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"></div><div class="check-item-text">K7 — Use your Impressive Scroll on your best noble (one-time use, don't waste it)</div></div>
@@ -966,7 +991,7 @@
           </div>
         </div>
         <div style="display:none;padding:0 22px 22px;">
-        <div class="tip-box" style="margin-bottom:14px;"><strong>🔴 Eternal Empire Standard:</strong> Inbreeding is a last resort technique. Never do it without understanding the consequences. Always clear with Aquila if you're considering it for a key bloodline noble.</div>
+        <div class="tip-box" style="margin-bottom:14px;"><strong>🔴 Eternal Empire Standard:</strong> Inbreeding is a last resort technique. Never do it without understanding the consequences. Always clear with leadership if you're considering it for a key bloodline noble.</div>
         <div class="check-group-title">Why Players Do It</div>
         <div style="font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:12px;">When a noble has rare Mythical traits that can't be sourced from outside families, inbreeding locks those traits inside your bloodline. Generations of inbreeding can stack those same traits deeper and deeper — producing nobles with a highly concentrated trait pool that outside breeding would dilute.</div>
         <div class="check-group-title">The Cons</div>
@@ -2259,12 +2284,12 @@
           </div>
         </div>
         <div style="display:none;padding:0 22px 22px;">
-          <div class="bld-row" style="border:none;padding:8px 0;flex-direction:column;align-items:center;text-align:center;"><div class="bld-label">Alliance Leader</div><div style="font-family:var(--font-d);font-weight:900;font-size:22px;color:var(--ee-yellow);">Aquila</div></div>
+          <div class="bld-row" style="border:none;padding:8px 0;flex-direction:column;align-items:center;text-align:center;"><div class="bld-label">Alliance Leadership</div><div style="font-family:var(--font-d);font-weight:900;font-size:22px;color:var(--ee-yellow);">Leadership Team</div></div>
           <div class="bld-row" style="border:none;padding:8px 0;border-top:1px solid var(--ee-border);"><div class="bld-label">Sister Alliance</div><div style="font-family:var(--font-d);font-weight:700;font-size:15px;color:var(--ee-yellow);">Caos Crew</div></div>
           <div class="bld-row" style="border:none;padding:8px 0;border-top:1px solid var(--ee-border);"><div class="bld-label">Allies</div><div style="font-family:var(--font-d);font-weight:700;font-size:15px;color:var(--ee-yellow);">Lardhi · Caos Crew</div></div>
           <div class="bld-row" style="border:none;padding:8px 0;border-top:1px solid var(--ee-border);"><div class="bld-label">NAP</div><div style="font-family:var(--font-d);font-weight:700;font-size:15px;color:var(--ee-yellow);">United Empire · Planktown Empire</div></div>
-          <div class="bld-row" style="border:none;padding:8px 0;border-top:1px solid var(--ee-border);"><div class="bld-label">Recruitment</div><div style="font-family:var(--font-d);font-weight:700;font-size:15px;color:var(--ee-yellow);">Ask Aquila directly</div></div>
-          <div class="tip-box" style="margin-top:10px;"><strong>📋 Eternal Empire Policy:</strong> Eternal Empire does NOT support raiding for resources. Recruitment and diplomacy handled by Aquila and Rosenkreuz.</div>
+          <div class="bld-row" style="border:none;padding:8px 0;border-top:1px solid var(--ee-border);"><div class="bld-label">Recruitment</div><div style="font-family:var(--font-d);font-weight:700;font-size:15px;color:var(--ee-yellow);">Ask leadership directly</div></div>
+          <div class="tip-box" style="margin-top:10px;"><strong>📋 Eternal Empire Policy:</strong> Eternal Empire does NOT support raiding for resources. Recruitment and diplomacy are handled by leadership.</div>
         </div>
       </div>
 
@@ -2284,7 +2309,7 @@
       <div class="alliance-rules">
         <div class="rule-card"><div class="rule-num">01</div><h4>Focus Fire — No Splitting</h4><p>All members concentrate attacks on a single designated target at a time. Splitting damage lets enemies heal and recover. Coordinate in chat before every attack.</p></div>
         <div class="rule-card"><div class="rule-num">02</div><h4>Reinforce Immediately</h4><p>When an alliance member is under attack, reinforce without waiting. Your army in their castle is the difference between survival and destruction. Monitor chat constantly.</p></div>
-        <div class="rule-card"><div class="rule-num">04</div><h4>Rally Timing Is Sacred</h4><p>Rallies must be coordinated with leadership. Sending a rally at the wrong time wastes momentum. Wait for the signal from Aquila or designated rally leaders.</p></div>
+        <div class="rule-card"><div class="rule-num">04</div><h4>Rally Timing Is Sacred</h4><p>Rallies must be coordinated with leadership. Sending a rally at the wrong time wastes momentum. Wait for the signal from leadership or designated rally leaders.</p></div>
         <div class="rule-card"><div class="rule-num">05</div><h4>Communicate Everything</h4><p>Report attacks, threats, and target status in alliance chat immediately. Silent members create gaps in defense. Eternal Empire wins through coordination.</p></div>
         <div class="rule-card"><div class="rule-num">06</div><h4>No Resource Raiding</h4><p>Eternal Empire does NOT support raiding player castles for resources. All aggression must be sanctioned by leadership and aimed at military targets only.</p></div>
       </div>
@@ -2307,10 +2332,10 @@
   <div class="alliance-rules">
     <div class="rule-card"><div class="rule-num" style="color:#ffd600;">☀️</div><h4>Fortune's Light</h4><p>Buffs loot for ALL alliance members simultaneously. Activate before major farming sessions or fort runs to maximize resource gains across the whole alliance.</p></div>
     <div class="rule-card"><div class="rule-num" style="color:#ffd600;">🌑</div><h4>Dark Omen</h4><p>Debuffs a target city — reduces their army attack, health, and march speed. Use before a coordinated rally to weaken the enemy before your Marshal arrives.</p></div>
-    <div class="rule-card"><div class="rule-num" style="color:#ffd600;">☠️</div><h4>Plague</h4><p>Locks enemy nobles in place — they cannot march, trade, or explore. Devastating during wars. Note: certain Plague exceptions apply, confirm with Aquila before use.</p></div>
+    <div class="rule-card"><div class="rule-num" style="color:#ffd600;">☠️</div><h4>Plague</h4><p>Locks enemy nobles in place — they cannot march, trade, or explore. Devastating during wars. Note: certain Plague exceptions apply, confirm with leadership before use.</p></div>
     <div class="rule-card"><div class="rule-num" style="color:#ffd600;">🧂</div><h4>Salt the Earth</h4><p>Forces a target county to relocate. Nuclear option — used to remove enemies from strategic territory. Leadership approval required before casting.</p></div>
   </div>
-  <div class="tip-box" style="margin-top:16px;"><strong>⚠ Temple Spell Rules:</strong> All Temple Spells must be approved by Aquila before use. Plague and Salt the Earth especially — misuse can trigger diplomatic incidents with NAP partners.</div>
+  <div class="tip-box" style="margin-top:16px;"><strong>⚠ Temple Spell Rules:</strong> All Temple Spells must be approved by leadership before use. Plague and Salt the Earth especially — misuse can trigger diplomatic incidents with NAP partners.</div>
   </div>
 </div>
       <!-- NOBLE CAPTURE -->
@@ -2347,5 +2372,6 @@
 <script src="assets/js/army-simulator.js"></script>
 <script src="assets/js/breeding-analyzer.js"></script>
 <script src="assets/js/site-widgets.js"></script>
+<script src="assets/js/interactive-effects.js"></script>
 </body>
 </html>

@@ -1,0 +1,239 @@
+/* ═══════════════════════════════════════════════════════════════
+   ETERNAL EMPIRE — INTERACTIVE MOTION LAYER
+   Lightweight motion enhancements. All effects respect reduced-motion.
+═══════════════════════════════════════════════════════════════ */
+
+:root{
+  --ga-pointer-x:50%;
+  --ga-pointer-y:50%;
+}
+
+/* Smooth, GPU-friendly animation defaults */
+.ga-tilt,
+.ga-shimmer,
+.ga-reveal,
+.bnav-item,
+.top-nav-links a,
+button,
+.btn-primary,
+.btn-ghost,
+.ee-genalpha-button,
+.back-cta a{
+  backface-visibility:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* 3D hover tilt applied by JavaScript */
+.ga-tilt{
+  --tilt-x:0deg;
+  --tilt-y:0deg;
+  --tilt-z:0px;
+  --tilt-scale:1;
+  position:relative;
+  transform:
+    perspective(950px)
+    rotateX(var(--tilt-x))
+    rotateY(var(--tilt-y))
+    translateZ(var(--tilt-z))
+    scale(var(--tilt-scale));
+  transform-style:preserve-3d;
+  transition:transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease, border-color .25s ease, filter .25s ease;
+  will-change:transform;
+}
+.ga-tilt.ga-hovering{
+  --tilt-z:6px;
+  --tilt-scale:1.018;
+  z-index:3;
+  filter:brightness(1.05) saturate(1.06);
+  box-shadow:0 22px 44px rgba(4,0,28,.42),0 0 26px rgba(255,69,207,.18);
+}
+.ga-tilt > *{transform-style:preserve-3d;}
+.ga-tilt.ga-hovering .front-icon,
+.ga-tilt.ga-hovering .role-icon-box,
+.ga-tilt.ga-hovering .node-icon-box{
+  transform:translateZ(24px) translateY(-3px);
+}
+.front-icon,.role-icon-box,.node-icon-box{transition:transform .24s cubic-bezier(.2,.8,.2,1),filter .24s ease;}
+
+/* Gloss sweep */
+.ga-shimmer{position:relative;isolation:isolate;overflow:hidden;}
+.ga-shimmer::after{
+  content:"";
+  position:absolute;
+  z-index:7;
+  pointer-events:none;
+  top:-35%;
+  left:-70%;
+  width:42%;
+  height:170%;
+  opacity:0;
+  transform:rotate(18deg) translateX(0);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.05),rgba(255,255,255,.52),rgba(255,255,255,.07),transparent);
+  filter:blur(2px);
+}
+.ga-shimmer:hover::after,
+.ga-shimmer:focus-visible::after{
+  opacity:.9;
+  animation:gaShimmerSweep .82s cubic-bezier(.25,.75,.2,1);
+}
+@keyframes gaShimmerSweep{
+  from{left:-70%;}
+  to{left:135%;}
+}
+
+/* Interactive buttons */
+button,
+.btn-primary,
+.btn-ghost,
+.ee-genalpha-button,
+.back-cta a,
+.quick-jump-button{
+  position:relative;
+  overflow:hidden;
+  transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .2s ease,filter .2s ease;
+}
+button:hover,
+.btn-primary:hover,
+.btn-ghost:hover,
+.ee-genalpha-button:hover,
+.back-cta a:hover{
+  transform:translateY(-3px) scale(1.025);
+  filter:brightness(1.07) saturate(1.08);
+}
+button:active,
+.btn-primary:active,
+.btn-ghost:active,
+.ee-genalpha-button:active,
+.back-cta a:active{
+  transform:translateY(2px) scale(.985);
+}
+
+/* Navigation icon movement */
+.bnav-item .bnav-icon-img,
+.top-nav-links .top-nav-icon-img{
+  transition:transform .28s cubic-bezier(.2,.9,.3,1.4),filter .25s ease;
+  transform-origin:50% 75%;
+}
+.bnav-item:hover .bnav-icon-img,
+.bnav-item.active .bnav-icon-img,
+.top-nav-links a:hover .top-nav-icon-img{
+  transform:translateY(-5px) rotate(-4deg) scale(1.16);
+  filter:drop-shadow(0 7px 15px rgba(255,69,207,.7)) brightness(1.13);
+}
+.bnav-item.active .bnav-icon-img{animation:gaIconFloat 2.3s ease-in-out infinite;}
+@keyframes gaIconFloat{
+  0%,100%{transform:translateY(-4px) rotate(-2deg) scale(1.12)}
+  50%{transform:translateY(-8px) rotate(3deg) scale(1.17)}
+}
+
+/* Scroll entrance */
+.ga-reveal{
+  opacity:0;
+  transform:translateY(28px) scale(.985);
+  filter:blur(4px);
+  transition:opacity .7s ease,transform .75s cubic-bezier(.16,.84,.32,1),filter .65s ease;
+  transition-delay:var(--ga-delay,0ms);
+}
+.ga-reveal.ga-visible{
+  opacity:1;
+  transform:none;
+  filter:none;
+}
+.ga-reveal-soft{
+  opacity:0;
+  filter:blur(4px);
+  transition:opacity .7s ease,filter .65s ease;
+  transition-delay:var(--ga-delay,0ms);
+}
+.ga-reveal-soft.ga-visible{opacity:1;filter:none;}
+
+/* Subtle ambient float for icons and badges */
+.front-icon-img{animation:gaSoftFloat 4.8s ease-in-out infinite;}
+.flip-card:nth-child(2n) .front-icon-img,
+.flip-card-wrap:nth-child(2n) .front-icon-img{animation-delay:-1.3s;}
+.flip-card:nth-child(3n) .front-icon-img,
+.flip-card-wrap:nth-child(3n) .front-icon-img{animation-delay:-2.4s;}
+@keyframes gaSoftFloat{
+  0%,100%{transform:translateY(0) rotate(-1deg)}
+  50%{transform:translateY(-6px) rotate(2deg)}
+}
+
+/* Active card rim pulse */
+.flip-card:hover .flip-front,
+.flip-card-wrap:hover .flip-front,
+.role-card:hover,
+.rule-card:hover,
+.phase:hover{
+  border-color:rgba(255,255,255,.85)!important;
+  box-shadow:0 18px 42px rgba(5,0,30,.38),0 0 0 2px rgba(66,239,255,.15),0 0 28px rgba(255,69,207,.24)!important;
+}
+
+/* Mouse-following glow inside large sections */
+.ga-pointer-glow{position:relative;isolation:isolate;}
+.ga-pointer-glow::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.5;
+  background:radial-gradient(430px circle at var(--local-x,50%) var(--local-y,50%),rgba(66,239,255,.10),rgba(255,69,207,.045) 38%,transparent 68%);
+  transition:opacity .25s ease;
+}
+.ga-pointer-glow:hover::before{opacity:.85;}
+
+/* Footer remains full width and undistorted, with subtle depth motion */
+.ee-home-footer-banner{overflow:hidden;position:relative;}
+.ee-home-footer-banner::before{
+  content:"";position:absolute;inset:-40%;pointer-events:none;
+  background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.11) 48%,transparent 61%);
+  transform:translateX(-65%);
+  animation:gaFooterGlow 8s ease-in-out infinite;
+}
+.ee-home-footer-banner img{
+  --footer-x:0px;
+  --footer-y:0px;
+  transform:translate3d(var(--footer-x),var(--footer-y),0) scale(1.012);
+  transform-origin:center;
+  transition:transform .32s cubic-bezier(.2,.8,.2,1),filter .3s ease;
+  will-change:transform;
+}
+.ee-home-footer-banner:hover img{filter:brightness(1.06) saturate(1.08);}
+@keyframes gaFooterGlow{
+  0%,55%{transform:translateX(-65%)}
+  78%,100%{transform:translateX(65%)}
+}
+
+/* Tiny sparkle generated on interaction */
+.ga-sparkle{
+  position:fixed;
+  z-index:9999;
+  width:7px;height:7px;
+  pointer-events:none;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 0 9px #fff,0 0 17px #42efff,0 0 26px #ff45cf;
+  animation:gaSparklePop .62s ease-out forwards;
+}
+@keyframes gaSparklePop{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.2) rotate(0)}
+  20%{opacity:1}
+  100%{opacity:0;transform:translate(calc(-50% + var(--sx)),calc(-50% + var(--sy))) scale(1.15) rotate(120deg)}
+}
+
+@media (hover:none),(pointer:coarse){
+  .ga-tilt{transform:none!important;}
+  .ga-tilt.ga-hovering{filter:none;box-shadow:inherit;}
+  .ga-shimmer:active::after{opacity:.7;animation:gaShimmerSweep .7s ease;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.001ms!important;
+  }
+  .ga-reveal,.ga-reveal-soft{opacity:1!important;transform:none!important;filter:none!important;}
+  .ga-tilt{transform:none!important;}
+}
