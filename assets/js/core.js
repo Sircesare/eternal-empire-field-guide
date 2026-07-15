@@ -4,7 +4,7 @@
   window.addEventListener('load', function(){ window.scrollTo(0,0); });
 
 // ── VIEW SWITCHING ──
-const VIEWS=['home','beginners','research','nobles','simulator','battlesim','pvp','tips','alliance'];
+const VIEWS=['home','command','beginners','research','nobles','simulator','battlesim','pvp','tips','alliance'];
 function showView(id, anchor){
   VIEWS.forEach(v=>{
     document.getElementById('view-'+v).classList.remove('active');

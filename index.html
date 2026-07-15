@@ -58,6 +58,7 @@
   </button>
   <div class="top-nav-links" id="top-nav-links">
     <a href="#" onclick="showView('home');closeHamburger();return false;"><span class="top-nav-icon"><img src="assets/images/icons/home-castle.png" alt="" aria-hidden="true" class="top-nav-icon-img"></span><span>Home</span></a>
+    <a href="#" onclick="showView('command');closeHamburger();return false;"><span class="top-nav-icon">🧭</span><span>What Next?</span></a>
     <a href="#" onclick="showView('beginners');closeHamburger();return false;"><span class="top-nav-icon"><img src="assets/images/icons/guide-book.png" alt="" aria-hidden="true" class="top-nav-icon-img"></span><span>Beginners</span></a>
     <a href="#" onclick="showView('research');closeHamburger();return false;"><span class="top-nav-icon"><img src="assets/images/icons/research-scroll.png" alt="" aria-hidden="true" class="top-nav-icon-img"></span><span>Research</span></a>
     <a href="#" onclick="showView('nobles');closeHamburger();return false;"><span class="top-nav-icon"><img src="assets/images/icons/nobles-crown.png" alt="" aria-hidden="true" class="top-nav-icon-img"></span><span>Nobles</span></a>
@@ -157,9 +158,16 @@
     <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Noble Qualities</div></div>
     <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Shard to Own</div></div>
   </div>
-  
 
-  
+  <section class="next-step-home-banner" aria-label="Find your next step">
+    <div>
+      <span class="next-step-home-kicker">Lost? Start here.</span>
+      <h2>What Should I Do Next?</h2>
+      <p>Answer a few quick questions and get a personal five-step plan based on your Keep level, biggest problem, army progress, and resource bottleneck.</p>
+    </div>
+    <button type="button" onclick="showView('command')"><span>🧭</span> Build My Plan</button>
+  </section>
+
 <!-- QUICK JUMP STRIP -->
 <div style="background:#0d0020;border-top:1px solid var(--ee-border);border-bottom:1px solid var(--ee-border);padding:14px 16px;display:flex;gap:8px;overflow-x:auto;justify-content:center;flex-wrap:wrap;">
   <button onclick="showView('research')" style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.25);border-radius:8px;padding:10px 16px;cursor:pointer;font-family:var(--font-d);font-weight:700;font-size:13px;color:var(--ee-yellow);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='rgba(255,214,0,.16)'" onmouseout="this.style.background='rgba(255,214,0,.08)'"><img src="assets/images/icons/research-scroll.png" alt="" aria-hidden="true" class="quick-link-icon"><span>Research Tree</span></button>
@@ -328,6 +336,101 @@
       <img src="assets/images/eternal-empire-footer-banner.png" alt="Eternal Empire footer banner reading Kingdom Maker Field Guide, Every Noble Has a Purpose, and Every Battle Has a Plan">
     </div>
   </footer>
+</div>
+
+<!-- ═══════════════ VIEW: COMMAND CENTER ═══════════════ -->
+<div class="view" id="view-command">
+  <section class="command-hero">
+    <div class="command-hero-copy">
+      <span class="command-kicker">Eternal Empire Command Center</span>
+      <h1>What Should I Do <span>Next?</span></h1>
+      <p>Stop guessing. Tell the guide where your account is stuck and receive a focused plan you can act on today.</p>
+      <div class="command-progress-track"><span id="command-step-label">Step 1 of 4</span><div><i id="command-progress-bar"></i></div></div>
+    </div>
+    <img src="assets/images/mascots/beginner-guide.png" alt="Eternal Empire guide mascot" class="command-mascot">
+  </section>
+
+  <main class="command-shell">
+    <section class="command-wizard" id="command-wizard">
+      <div class="command-question active" data-step="1">
+        <span class="command-question-number">01</span><h2>What Keep range are you in?</h2><p>This sets the correct stage of progression.</p>
+        <div class="command-choice-grid">
+          <button data-field="keep" data-value="1-9"><b>K1–K9</b><small>Learn and protect</small></button>
+          <button data-field="keep" data-value="10-14"><b>K10–K14</b><small>Build the foundation</small></button>
+          <button data-field="keep" data-value="15-17"><b>K15–K17</b><small>Stop growing blindly</small></button>
+          <button data-field="keep" data-value="18-20"><b>K18–K20</b><small>Prepare for K21</small></button>
+          <button data-field="keep" data-value="21+"><b>K21+</b><small>Optimize and compete</small></button>
+        </div>
+      </div>
+      <div class="command-question" data-step="2">
+        <span class="command-question-number">02</span><h2>What feels most broken right now?</h2><p>Choose the problem you notice most often.</p>
+        <div class="command-choice-grid command-choice-grid--problems">
+          <button data-field="problem" data-value="upgrade"><b>🏰 I Cannot Upgrade</b><small>Keep, buildings, or research blocked</small></button>
+          <button data-field="problem" data-value="silver"><b>🪙 I Have No Silver</b><small>Everything drains my treasury</small></button>
+          <button data-field="problem" data-value="army"><b>⚔️ My Army Is Weak</b><small>Low power or bad performance</small></button>
+          <button data-field="problem" data-value="pvp"><b>🎯 I Keep Losing PvP</b><small>Attacks and defenses fail</small></button>
+          <button data-field="problem" data-value="nobles"><b>👑 My Nobles Confuse Me</b><small>Roles, traits, or breeding</small></button>
+          <button data-field="problem" data-value="direction"><b>🧭 I Have No Direction</b><small>I simply do not know what matters</small></button>
+        </div>
+      </div>
+      <div class="command-question" data-step="3">
+        <span class="command-question-number">03</span><h2>What is your biggest resource bottleneck?</h2><p>This helps prevent advice that makes your shortage worse.</p>
+        <div class="command-choice-grid">
+          <button data-field="resource" data-value="food"><b>🌾 Food</b><small>Troops and healing</small></button>
+          <button data-field="resource" data-value="wood"><b>🪵 Wood</b><small>Academy research</small></button>
+          <button data-field="resource" data-value="stone"><b>🪨 Stone</b><small>Buildings and Keep</small></button>
+          <button data-field="resource" data-value="silver"><b>🪙 Silver</b><small>Nobles, research, troops</small></button>
+          <button data-field="resource" data-value="materials"><b>💎 Refined Materials</b><small>Mining and refinery wall</small></button>
+          <button data-field="resource" data-value="none"><b>✅ None Yet</b><small>I need general priorities</small></button>
+        </div>
+      </div>
+      <div class="command-question" data-step="4">
+        <span class="command-question-number">04</span><h2>Which best describes your account?</h2><p>Choose the closest match. It does not need to be perfect.</p>
+        <div class="command-choice-grid">
+          <button data-field="status" data-value="rushed"><b>🚀 High Keep, Weak Account</b><small>I rushed levels or power</small></button>
+          <button data-field="status" data-value="balanced"><b>⚖️ Fairly Balanced</b><small>Most systems are developing</small></button>
+          <button data-field="status" data-value="casual"><b>🕒 Casual Player</b><small>I log in a few times daily</small></button>
+          <button data-field="status" data-value="active"><b>🔥 Very Active</b><small>I trade, farm, and fight often</small></button>
+        </div>
+      </div>
+      <div class="command-wizard-actions">
+        <button type="button" id="command-back" class="command-secondary" disabled>← Back</button>
+        <button type="button" id="command-next" class="command-primary" disabled>Next →</button>
+      </div>
+    </section>
+
+    <section class="command-results" id="command-results" hidden>
+      <div class="command-result-heading">
+        <div><span>Your Personalized Orders</span><h2>Your Next 5 Moves</h2><p id="command-summary"></p></div>
+        <button type="button" id="command-retake" class="command-secondary">Retake Checkup</button>
+      </div>
+      <div id="command-orders" class="command-orders"></div>
+      <div class="command-result-columns">
+        <article class="command-panel command-panel--warning"><span>Avoid Right Now</span><h3 id="command-avoid-title"></h3><p id="command-avoid-copy"></p></article>
+        <article class="command-panel command-panel--ready"><span>You Are Ready to Move On When</span><h3 id="command-ready-title"></h3><p id="command-ready-copy"></p></article>
+      </div>
+    </section>
+
+    <section class="command-dashboard">
+      <div class="command-dashboard-title"><span>Repeatable Routine</span><h2>Today’s Command List</h2><p>Check these off each day. Progress is saved on this device.</p></div>
+      <div class="command-checklist" id="command-daily-list">
+        <label><input type="checkbox" data-daily="collect"><span><b>Collect city production</b><small>Do not let Farm, Sawmill, Stonemason, or Housing sit full.</small></span></label>
+        <label><input type="checkbox" data-daily="queues"><span><b>Keep research and construction active</b><small>Long timers should always be running.</small></span></label>
+        <label><input type="checkbox" data-daily="trade"><span><b>Run Merchant trades</b><small>Build Silver and Trade Merits consistently.</small></span></label>
+        <label><input type="checkbox" data-daily="mine"><span><b>Send your Collier mining</b><small>Build the refined-material pipeline before it blocks you.</small></span></label>
+        <label><input type="checkbox" data-daily="alliance"><span><b>Check alliance instructions and Discord</b><small>Do not miss war calls, events, diplomacy, or support.</small></span></label>
+        <label><input type="checkbox" data-daily="safe"><span><b>Secure armies before logging off</b><small>Recall exposed marches and verify shield time.</small></span></label>
+      </div>
+      <button type="button" id="command-reset-daily" class="command-secondary">Reset Daily List</button>
+    </section>
+
+    <section class="command-problem-shortcuts">
+      <div><span>Need an instant answer?</span><h2>Choose Your Problem</h2></div>
+      <div class="command-shortcut-grid">
+        <button data-command-problem="silver">I Have No Silver</button><button data-command-problem="army">My Army Is Weak</button><button data-command-problem="upgrade">I Cannot Upgrade</button><button data-command-problem="pvp">I Keep Losing PvP</button><button data-command-problem="nobles">My Nobles Confuse Me</button>
+      </div>
+    </section>
+  </main>
 </div>
 
 <!-- ═══════════════ VIEW: BEGINNERS ═══════════════ -->
@@ -2613,6 +2716,7 @@
 <script src="assets/js/breeding-analyzer.js"></script>
 <script src="assets/js/site-widgets.js"></script>
 <script src="assets/js/interactive-effects.js"></script>
+<script src="assets/js/next-step-command-center.js"></script>
 
 <div class="ee-float-tools" aria-label="Page tools">
   <button type="button" id="ee-scroll-progress" title="Back to top" aria-label="Back to top"><span>0%</span></button>
