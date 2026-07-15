@@ -27,13 +27,14 @@
     problem:{
       upgrade:[['Identify the exact blocker before spending anything','Check required buildings, research, resources, and refined materials in that order.','beginners'],['Protect the resource tied to the blocker','Do not convert or spend the resource your next requirement needs.','tips']],
       silver:[['Stop leveling secondary nobles','Prioritize required research, main troops, one combat noble, one Merchant, and one Collier.','nobles'],['Trade replaceable surplus consistently','Stone is often safest to sell when no major construction is pending.','tips']],
+      food:[['Max your Farm and available Fields','Upgrade the Farm, claim as many Fields as your Keep level allows, and keep every Field farming.','beginners'],['Use Stone to fund overnight Food','Raise one Merchant to level 10+, sell Stone twice each day, then use that Silver to buy Food before sleeping. Stone is usually the least-used basic material, so it is the safest regular trade when no building upgrade is pending.','tips']],
       army:[['Audit troop tier, composition, and main noble','Visible army power alone does not show whether the formation works.','army'],['Concentrate research on the army you actually use','Scattered military research creates expensive, weak armies.','research']],
       pvp:[['Scout and calculate healing cost before attacking','A win that costs more than the reward is still a bad attack.','pvp'],['Match noble role, traits, troops, and elements','A strong noble used with the wrong army can still lose badly.','army']],
       nobles:[['Assign every noble one clear job','Combat, trade, exploration, industry, or breeding—not everything at once.','nobles'],['Compare role fit before visible power','Traits, rarity, equipment, and army purpose matter more than one power number.','nobles']],
       direction:[['Follow one progression path at a time','Economy → required research → main noble → main army → PvP refinement.','beginners'],['Use the daily checklist below','Consistent queues and trades beat random bursts of activity.','tips']]
     },
     resource:{
-      food:['Maintain one troop-rebuild reserve','Use long crops offline and do not sell Food before war or training events.','tips'],
+      food:['Run the full Food loop every day','Upgrade the Farm, unlock every Field available at your level, keep them farming, sell Stone twice daily with a level 10+ Merchant, and use the Silver to buy Food overnight.','tips'],
       wood:['Stop selling Wood until research is covered','Wood is usually the most dangerous basic resource to trade below K21.','research'],
       stone:['Check the next Keep and building requirements','After those are covered, surplus Stone is often useful for Silver trades.','tips'],
       silver:['Improve Housing, Treasury support, and Merchant flow','Then cut wasteful noble and troop spending.','tips'],
@@ -84,7 +85,7 @@
     localStorage.setItem('eeCommandAnswers',JSON.stringify(answers));
     document.getElementById('command-results').scrollIntoView({behavior:'smooth',block:'start'});
   }
-  function labelProblem(v){return ({upgrade:'being unable to upgrade',silver:'Silver income',army:'army strength',pvp:'PvP performance',nobles:'noble development',direction:'clear progression'})[v]}
+  function labelProblem(v){return ({upgrade:'being unable to upgrade',silver:'Silver income',food:'Food production',army:'army strength',pvp:'PvP performance',nobles:'noble development',direction:'clear progression'})[v]}
   function labelResource(v){return ({food:'Food',wood:'Wood',stone:'Stone',silver:'Silver',materials:'refined materials',none:'general resources'})[v]}
 
   document.querySelectorAll('[data-command-problem]').forEach(b=>b.addEventListener('click',()=>{answers.problem=b.dataset.commandProblem;document.getElementById('command-wizard').hidden=false;document.getElementById('command-results').hidden=true;step=1;document.querySelectorAll('[data-field="problem"]').forEach(x=>x.classList.toggle('selected',x.dataset.value===answers.problem));update();document.getElementById('command-wizard').scrollIntoView({behavior:'smooth'})}));

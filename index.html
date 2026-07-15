@@ -160,12 +160,32 @@
   </div>
 
   <section class="next-step-home-banner" aria-label="Find your next step">
-    <div>
-      <span class="next-step-home-kicker">Lost? Start here.</span>
-      <h2>What Should I Do Next?</h2>
-      <p>Answer a few quick questions and get a personal five-step plan based on your Keep level, biggest problem, army progress, and resource bottleneck.</p>
+    <div class="next-step-home-copy">
+      <div class="next-step-home-topline">
+        <span class="next-step-home-kicker">Lost? Start here.</span>
+        <span class="next-step-home-sticker">No more random upgrades ✦</span>
+      </div>
+      <h2>What Should <span>I Do Next?</span></h2>
+      <p>Stop guessing. Tap a problem, answer a few quick questions, and get a personal five-step plan based on your Keep level, biggest blocker, army progress, and resource bottleneck.</p>
+      <div class="next-step-home-chip-label">Jump in fast:</div>
+      <div class="next-step-home-chips" role="group" aria-label="Quick command center shortcuts">
+        <button type="button" class="next-step-chip" data-command-problem="direction" onclick="showView('command')">😵 I'm lost</button>
+        <button type="button" class="next-step-chip" data-command-problem="upgrade" onclick="showView('command')">🏗️ Can't upgrade</button>
+        <button type="button" class="next-step-chip" data-command-problem="silver" onclick="showView('command')">💸 No silver</button>
+        <button type="button" class="next-step-chip" data-command-problem="food" onclick="showView('command')">🌾 No food</button>
+        <button type="button" class="next-step-chip" data-command-problem="army" onclick="showView('command')">🛡️ Weak army</button>
+      </div>
     </div>
-    <button type="button" onclick="showView('command')"><span>🧭</span> Build My Plan</button>
+    <div class="next-step-home-cta-card">
+      <div class="next-step-home-badge">Personalized</div>
+      <div class="next-step-home-mini-title">Build your next 5 moves</div>
+      <ul class="next-step-home-mini-list">
+        <li>Keep-level roadmap</li>
+        <li>Biggest problem solver</li>
+        <li>Daily checklist included</li>
+      </ul>
+      <button type="button" onclick="showView('command')"><span>🧭</span> Build My Plan</button>
+    </div>
   </section>
 
 <!-- QUICK JUMP STRIP -->
@@ -367,6 +387,7 @@
         <div class="command-choice-grid command-choice-grid--problems">
           <button data-field="problem" data-value="upgrade"><b>🏰 I Cannot Upgrade</b><small>Keep, buildings, or research blocked</small></button>
           <button data-field="problem" data-value="silver"><b>🪙 I Have No Silver</b><small>Everything drains my treasury</small></button>
+          <button data-field="problem" data-value="food"><b>🌾 I Have No Food</b><small>Troops and healing empty my stores</small></button>
           <button data-field="problem" data-value="army"><b>⚔️ My Army Is Weak</b><small>Low power or bad performance</small></button>
           <button data-field="problem" data-value="pvp"><b>🎯 I Keep Losing PvP</b><small>Attacks and defenses fail</small></button>
           <button data-field="problem" data-value="nobles"><b>👑 My Nobles Confuse Me</b><small>Roles, traits, or breeding</small></button>
@@ -427,7 +448,7 @@
     <section class="command-problem-shortcuts">
       <div><span>Need an instant answer?</span><h2>Choose Your Problem</h2></div>
       <div class="command-shortcut-grid">
-        <button data-command-problem="silver">I Have No Silver</button><button data-command-problem="army">My Army Is Weak</button><button data-command-problem="upgrade">I Cannot Upgrade</button><button data-command-problem="pvp">I Keep Losing PvP</button><button data-command-problem="nobles">My Nobles Confuse Me</button>
+        <button data-command-problem="silver">I Have No Silver</button><button data-command-problem="food">I Have No Food</button><button data-command-problem="army">My Army Is Weak</button><button data-command-problem="upgrade">I Cannot Upgrade</button><button data-command-problem="pvp">I Keep Losing PvP</button><button data-command-problem="nobles">My Nobles Confuse Me</button>
       </div>
     </section>
   </main>
